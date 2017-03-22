@@ -12,13 +12,16 @@
 /*--------------------------------------------------------------
 # Header Bar
 --------------------------------------------------------------*/
-.header-bar {
-	position: relative;
-	margin: 0 auto;
-	max-width: 1340px;
+.header-bar-wrap {
 	width: 100%;
 	border-bottom: 1px solid #ddd;
 	background: #fff;
+}
+
+.header-bar {
+	position: relative;
+	margin: 0 auto;
+	max-width: 1300px;
 }
 
 .top-navigation-toggle {
@@ -29,6 +32,7 @@
 	display: inline;
 	float: left;
 	margin: 0;
+	padding: 0 0.5em;
 	list-style-position: outside;
 	list-style-type: none;
 }
@@ -39,11 +43,12 @@
 
 .top-navigation-menu a {
 	display: block;
-	padding: 0.8em;
+	margin: 0;
+	padding: 0.75em 1em;
 	text-decoration: none;
 	font-size: 15px;
 	font-size: 0.9375rem;
-	font-family: 'Titillium Web', Tahoma, Arial;
+	font-family: 'Gudea', Tahoma, Arial;
 }
 
 .top-navigation-menu > .menu-item-has-children > a:after {
@@ -68,7 +73,7 @@
 .top-navigation-menu a:hover,
 .top-navigation-menu a:active,
 .top-navigation-menu a:hover:after {
-	color: #999;
+	color: rgba(0,0,0,0.5);
 }
 
 .top-navigation-menu ul {
@@ -105,7 +110,7 @@
 
 .top-navigation-menu ul a:hover,
 .top-navigation-menu ul a:active {
-	background: rgba(255,255,255,0.1);
+	color: rgba(255,255,255,0.5);
 }
 
 .top-navigation-menu ul .menu-item-has-children > a:after {
@@ -159,7 +164,7 @@
 }
 
 .header-bar .social-icons-menu li a:hover:before {
-	color: #999;
+	color: rgba(0,0,0,0.5);
 	text-decoration: none;
 }
 
@@ -322,7 +327,21 @@
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-## Desktop XX-Large ( < 1360px )
+## 14.1 - Desktop X-Large ( < 1360px )
+--------------------------------------------------------------*/
+@media only screen and (max-width: 85em) {
+	.site {
+		box-shadow: 0 2px 2px #aaa;
+	}
+
+	.header-bar-wrap {
+		background: #fafafa;
+		box-shadow: 0 0 2px #aaa;
+	}
+}
+
+/*--------------------------------------------------------------
+## Desktop Large ( < 1200px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 80em) {
 	.footer-widgets-columns {
@@ -336,13 +355,22 @@
 	.footer-navigation-menu {
 		padding: 2em 0;
 	}
-
 }
 
 /*--------------------------------------------------------------
 ## Desktop Medium ( < 1040px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 70em) {
+
+	.site {
+		box-shadow: none;
+	}
+
+	.header-bar-wrap {
+		border-bottom: 1px solid #ddd;
+		box-shadow: none;
+	}
+
 	.widget-magazine-posts .magazine-horizontal-box .large-post .more-link  {
 		display: none;
 	}
@@ -360,7 +388,6 @@
 		font-size: 16px;
 		font-size: 1rem;
 	}
-
 }
 
 /*--------------------------------------------------------------
@@ -370,16 +397,12 @@
 	.widget-magazine-posts .magazine-horizontal-box .large-post .entry-content {
 		display: none;
 	}
-
 }
 
 /*--------------------------------------------------------------
 ## Desktop Small ( < 960px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 60em) {
-	.header-bar {
-		padding: 0;
-	}
 
 	/* Magazine Posts */
 	.widget-magazine-posts .magazine-horizontal-box .large-post .entry-content,
@@ -499,7 +522,7 @@
 	}
 
 	.top-navigation-toggle:hover:after {
-		color: #999;
+		color: rgba(0,0,0,0.5);
 	}
 
 	/* Top Navigation Menu */
@@ -530,7 +553,7 @@
 
 	.top-navigation-menu a:hover,
 	.top-navigation-menu a:active {
-		background: rgba(255,255,255,0.1);
+		color: rgba(255,255,255,0.5);
 	}
 
 	.top-navigation-menu ul {
@@ -563,10 +586,10 @@
 		float: right;
 		margin: 0;
 		padding: 0.75em 1.25em;
+		color: #fff;
 	}
 
 	.top-navigation-menu .submenu-dropdown-toggle:before {
-		color: #fff;
 		content: '\f431';
 		vertical-align: middle;
 		text-decoration: inherit;
@@ -579,7 +602,7 @@
 
 	.top-navigation-menu .submenu-dropdown-toggle:hover,
 	.top-navigation-menu .submenu-dropdown-toggle:active {
-		background: rgba(255,255,255,0.1);
+		color: rgba(255,255,255,0.5);
 		cursor: pointer;
 	}
 

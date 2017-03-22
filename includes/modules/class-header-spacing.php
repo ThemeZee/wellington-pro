@@ -46,7 +46,7 @@ class Wellington_Pro_Header_Spacing {
 		$theme_options = Wellington_Pro_Customizer::get_theme_options();
 
 		// Set Header Spacing.
-		if ( 30 !== $theme_options['header_spacing'] ) {
+		if ( 25 !== $theme_options['header_spacing'] ) {
 
 			$margin = $theme_options['header_spacing'] / 10;
 
@@ -54,7 +54,8 @@ class Wellington_Pro_Header_Spacing {
 				@media only screen and (min-width: 85em) {
 
 					.header-main {
-						padding: ' . $margin . 'em 0;
+						padding-top: ' . $margin . 'em;
+						padding-bottom: ' . $margin . 'em;
 					}
 
 				}
@@ -96,14 +97,14 @@ class Wellington_Pro_Header_Spacing {
 
 		// Add Header Spacing setting.
 		$wp_customize->add_setting( 'wellington_theme_options[header_spacing]', array(
-			'default'           => 30,
+			'default'           => 25,
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'absint',
 			)
 		);
 		$wp_customize->add_control( 'wellington_theme_options[header_spacing]', array(
-			'label'    => __( 'Header Spacing (default: 30)', 'wellington-pro' ),
+			'label'    => __( 'Header Spacing (default: 25)', 'wellington-pro' ),
 			'section'  => 'wellington_pro_section_header',
 			'settings' => 'wellington_theme_options[header_spacing]',
 			'type'     => 'text',
