@@ -32,12 +32,11 @@ class Wellington_Pro_Footer_Line {
 		remove_action( 'wellington_footer_text', 'wellington_footer_text' );
 		add_action( 'wellington_footer_text', array( __CLASS__, 'footer_text' ) );
 
-		// Add Footer Settings in Customizer.
-		add_action( 'customize_register', array( __CLASS__, 'footer_settings' ) );
-
 		// Display footer navigation.
 		add_action( 'wellington_footer_menu', array( __CLASS__, 'display_footer_menu' ) );
 
+		// Add Footer Settings in Customizer.
+		add_action( 'customize_register', array( __CLASS__, 'footer_settings' ) );
 	}
 
 	/**
@@ -67,7 +66,6 @@ class Wellington_Pro_Footer_Line {
 			endif;
 
 		endif;
-
 	}
 
 	/**
@@ -95,7 +93,6 @@ class Wellington_Pro_Footer_Line {
 			echo '</nav><!-- #footer-links -->';
 
 		}
-
 	}
 
 	/**
@@ -126,7 +123,7 @@ class Wellington_Pro_Footer_Line {
 			'section'  => 'wellington_pro_section_footer',
 			'settings' => 'wellington_theme_options[footer_text]',
 			'type'     => 'textarea',
-			'priority' => 1,
+			'priority' => 10,
 			)
 		);
 
@@ -143,10 +140,9 @@ class Wellington_Pro_Footer_Line {
 			'section'  => 'wellington_pro_section_footer',
 			'settings' => 'wellington_theme_options[credit_link]',
 			'type'     => 'checkbox',
-			'priority' => 2,
+			'priority' => 20,
 			)
 		);
-
 	}
 
 	/**
@@ -177,7 +173,6 @@ class Wellington_Pro_Footer_Line {
 		}
 
 		register_nav_menu( 'footer', esc_html__( 'Footer Navigation', 'wellington-pro' ) );
-
 	}
 }
 
@@ -185,4 +180,4 @@ class Wellington_Pro_Footer_Line {
 add_action( 'init', array( 'Wellington_Pro_Footer_Line', 'setup' ) );
 
 // Register footer navigation in backend.
-add_action( 'after_setup_theme', array( 'Wellington_Pro_Footer_Line', 'register_footer_menu' ), 20 );
+add_action( 'after_setup_theme', array( 'Wellington_Pro_Footer_Line', 'register_footer_menu' ), 30 );

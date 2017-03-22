@@ -1,7 +1,7 @@
 /*
  * Wellington Pro CSS
  *
- * Copyright(C) 2015, ThemeZee.com - support@themezee.com
+ * Copyright(C) 2017, ThemeZee.com - support@themezee.com
  * License: GPL v3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
@@ -238,45 +238,68 @@
 }
 
 /*--------------------------------------------------------------
-# Footer Widget Area
+# Footer Widgets
 --------------------------------------------------------------*/
-.footer-widgets-wrap {
-	padding: 2.5em 0 0;
-	border-top: 1px solid #ddd;
+.footer-widgets-background {
+	padding: 2.5em 3em 0;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+	background: #303030;
 }
 
-.footer-widgets-columns {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	margin-right: -3em;
+.footer-widgets {
+	margin-right: -2.5em;
 }
 
+.footer-widgets .widget {
+	margin: 0 0 2.5em;
+}
+
+/* Default: Four Column Footer Widgets */
 .footer-widget-column {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
+	float: left;
 	box-sizing: border-box;
-	padding-right: 3em;
-	width: 33.333333333333%;
+	padding-right: 2.5em;
+	width: 25%;
 }
 
-.footer-widget-column .widget {
+/* One Column Footer Widgets
+* Using Sibling Count: http://andr3.net/blog/post/142
+*/
+.footer-widget-column:nth-child(1):nth-last-child(1) {
+	float: none;
 	width: 100%;
 }
 
-/* Footer Columns Fixes for IE 10 and IE 11 */
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-	.footer-widgets-columns {
-		display: block;
-	}
+/* Two Column Footer Widgets */
+.footer-widget-column:nth-child(1):nth-last-child(2),
+.footer-widget-column:nth-child(2):nth-last-child(1) {
+	width: 50%;
+}
 
-	.footer-widget-column {
-		display: block;
-		float: left;
-	}
+/* Three Column Footer Widgets */
+.footer-widget-column:nth-child(1):nth-last-child(3),
+.footer-widget-column:nth-child(2):nth-last-child(2),
+.footer-widget-column:nth-child(3):nth-last-child(1) {
+	width: 33.3333%;
+}
+
+/* Footer Widget Styling */
+.footer-widgets .widget {
+	color: #fff;
+}
+
+.footer-widgets .widget-title {
+	color: #fff;
+}
+
+.footer-widgets .widget a:link,
+.footer-widgets .widget a:visited  {
+	color: #fff;
+}
+
+.footer-widgets .widget a:hover,
+.footer-widgets .widget a:active  {
+	color: rgba(255,255,255,0.5);
 }
 
 /*--------------------------------------------------------------
@@ -294,7 +317,7 @@
 	position: relative;
 	display: block;
 	margin: 0;
-	padding: 3em 0;
+	padding: 2.25em 3em;
 	list-style-position: outside;
 	list-style-type: none;
 }
@@ -306,20 +329,21 @@
 
 .footer-navigation-menu a {
 	display: block;
-	padding: 0 0.8em;
+	margin: 0;
+	padding: 0.75em 1em;
 	text-decoration: none;
-	font-family: 'Titillium Web', Tahoma, Arial;
+	font-family: 'Gudea', Tahoma, Arial;
 }
 
 .footer-navigation-menu a:link,
 .footer-navigation-menu a:visited {
-	color: #303030;
+	color: #fff;
 	text-decoration: none;
 }
 
 .footer-navigation-menu a:hover,
 .footer-navigation-menu a:active {
-	color: #999;
+	color: rgba(255,255,255,0.5);
 }
 
 /*--------------------------------------------------------------
@@ -344,16 +368,20 @@
 ## Desktop Large ( < 1200px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 80em) {
-	.footer-widgets-columns {
+	.footer-widgets-background {
+		padding: 2em 2em 0;
+	}
+
+	.footer-widgets {
 		margin-right: -2em;
+	}
+
+	.footer-widgets .widget {
+		margin: 0 0 2em;
 	}
 
 	.footer-widget-column {
 		padding-right: 2em;
-	}
-
-	.footer-navigation-menu {
-		padding: 2em 0;
 	}
 }
 
@@ -397,6 +425,18 @@
 	.widget-magazine-posts .magazine-horizontal-box .large-post .entry-content {
 		display: none;
 	}
+
+	/* Four Column Footer Widgets */
+	.footer-widget-column:nth-child(1):nth-last-child(4),
+	.footer-widget-column:nth-child(2):nth-last-child(3),
+	.footer-widget-column:nth-child(3):nth-last-child(2),
+	.footer-widget-column:nth-child(4):nth-last-child(1) {
+		width: 50%;
+	}
+
+	.footer-widget-column:nth-child(3):nth-last-child(2) {
+		clear: left;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -438,18 +478,6 @@
 	.widget-magazine-posts-sidebar .type-post .entry-content {
 		font-size: 17px;
 		font-size: 1.0625rem;
-	}
-
-	/* Footer Widgets */
-	.footer-widgets-columns {
-		margin-right: 0;
-	}
-
-	.footer-widget-column {
-		display: block;
-		float: none;
-		padding-right: 0;
-		width: 100%;
 	}
 
 	/*** Mobile Top Navigation ***/
@@ -614,15 +642,6 @@
 		padding: 0.4em 1em;
 	}
 
-	/* Footer Widgets */
-	.footer-widgets-background {
-		padding: 2em 0 0;
-	}
-
-	.footer-widgets .widget {
-		margin: 0 0 2em;
-	}
-
 	/* Footer Navigation */
 	.footer-navigation {
 		float: none;
@@ -661,6 +680,12 @@
 		font-size: 1rem;
 	}
 
+	/* Three Column Footer Widgets */
+	.footer-widget-column:nth-child(1):nth-last-child(3),
+	.footer-widget-column:nth-child(2):nth-last-child(2),
+	.footer-widget-column:nth-child(3):nth-last-child(1) {
+		width: 100%;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -720,7 +745,7 @@
 	/* Footer Navigation Menu */
 	.footer-navigation {
 		padding-bottom: 2em;
-		border-bottom: 1px solid #ddd;
+		border-bottom: 1px solid rgba(255,255,255,0.1);
 	}
 
 	.footer-navigation-menu li,
@@ -737,16 +762,17 @@
 ## Mobile Large ( < 560px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 35em) {
+
+	/* Footer Widgets */
 	.footer-widgets {
 		margin-right: 0;
 	}
 
-	.footer-widget-column {
+	#footer-widgets .footer-widget-column {
 		float: none;
 		padding-right: 0;
 		width: 100%;
 	}
-
 }
 
 /*--------------------------------------------------------------
@@ -759,24 +785,6 @@
 		font-size: 24px;
 		font-size: 1.5rem;
 	}
-
-	/* Footer Widgets */
-	.footer-widgets-background {
-		padding: 1.5em 0 0;
-	}
-
-	.footer-widgets {
-		margin-right: -1.5em;
-	}
-
-	.footer-widget-column {
-		padding-right: 1.5em;
-	}
-
-	.footer-widgets .widget {
-		margin: 0 0 1.5em;
-	}
-
 }
 
 /*--------------------------------------------------------------
