@@ -3,43 +3,43 @@
  *
  * Adjusts styling for theme option controls in the Customizer
  *
- * @package Maxwell Pro
+ * @package Wellington Pro
  */
 
-#customize-control-maxwell_theme_options-logo_spacing {
+#customize-control-wellington_theme_options-logo_spacing {
 	margin-top: 16px;
 }
 
-#customize-control-maxwell_theme_options-footer_text textarea {
+#customize-control-wellington_theme_options-footer_text textarea {
 	height: 4em;
 }
 
 /* Custom Font Control */
-.customize-control-maxwell_pro_custom_font {
+.customize-control-wellington_pro_custom_font {
 	margin-bottom: 24px;
 }
 
-.customize-control-maxwell_pro_custom_font .actions,
-.customize-control-maxwell_pro_custom_font_list .actions {
+.customize-control-wellington_pro_custom_font .actions,
+.customize-control-wellington_pro_custom_font_list .actions {
 	margin-top: 8px;
 }
 
-.customize-control-maxwell_pro_custom_font .actions .button.previous {
+.customize-control-wellington_pro_custom_font .actions .button.previous {
 	margin-right: 4px;
 }
 
-.customize-control-maxwell_pro_custom_font .actions .button.standard {
+.customize-control-wellington_pro_custom_font .actions .button.standard {
 	float: right;
 }
 
-.customize-control-maxwell_pro_custom_font select {
+.customize-control-wellington_pro_custom_font select {
 	width: 100%;
 }
 
-.customize-control-maxwell_pro_custom_font div:hover {
+.customize-control-wellington_pro_custom_font div:hover {
 	cursor: default;
 }
 
-.customize-control-maxwell_pro_custom_font .actions .button:hover {
+.customize-control-wellington_pro_custom_font .actions .button:hover {
 	cursor: pointer;
 }

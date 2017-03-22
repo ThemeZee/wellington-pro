@@ -4,7 +4,7 @@
  *
  * Adds color settings to Customizer and generates color CSS code
  *
- * @package Maxwell Pro
+ * @package Wellington Pro
  */
 
 // Exit if accessed directly.
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Custom Colors Class
  */
-class Maxwell_Pro_Custom_Colors {
+class Wellington_Pro_Custom_Colors {
 
 	/**
 	 * Custom Colors Setup
@@ -22,13 +22,13 @@ class Maxwell_Pro_Custom_Colors {
 	 */
 	static function setup() {
 
-		// Return early if Maxwell Theme is not active.
-		if ( ! current_theme_supports( 'maxwell-pro' ) ) {
+		// Return early if Wellington Theme is not active.
+		if ( ! current_theme_supports( 'wellington-pro' ) ) {
 			return;
 		}
 
 		// Add Custom Color CSS code to custom stylesheet output.
-		add_filter( 'maxwell_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) );
+		add_filter( 'wellington_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) );
 
 		// Add Custom Color Settings.
 		add_action( 'customize_register', array( __CLASS__, 'color_settings' ) );
@@ -44,10 +44,10 @@ class Maxwell_Pro_Custom_Colors {
 	static function custom_colors_css( $custom_css ) {
 
 		// Get Theme Options from Database.
-		$theme_options = Maxwell_Pro_Customizer::get_theme_options();
+		$theme_options = Wellington_Pro_Customizer::get_theme_options();
 
 		// Get Default Fonts from settings.
-		$default_options = Maxwell_Pro_Customizer::get_default_options();
+		$default_options = Wellington_Pro_Customizer::get_default_options();
 
 		// Set Link Color.
 		if ( $theme_options['link_color'] != $default_options['link_color'] ) {
@@ -219,18 +219,18 @@ class Maxwell_Pro_Custom_Colors {
 	static function color_settings( $wp_customize ) {
 
 		// Add Section for Theme Colors.
-		$wp_customize->add_section( 'maxwell_pro_section_colors', array(
-			'title'    => __( 'Theme Colors', 'maxwell-pro' ),
+		$wp_customize->add_section( 'wellington_pro_section_colors', array(
+			'title'    => __( 'Theme Colors', 'wellington-pro' ),
 			'priority' => 60,
-			'panel' => 'maxwell_options_panel',
+			'panel' => 'wellington_options_panel',
 			)
 		);
 
 		// Get Default Colors from settings.
-		$default_options = Maxwell_Pro_Customizer::get_default_options();
+		$default_options = Wellington_Pro_Customizer::get_default_options();
 
 		// Add Link and Button Color setting.
-		$wp_customize->add_setting( 'maxwell_theme_options[link_color]', array(
+		$wp_customize->add_setting( 'wellington_theme_options[link_color]', array(
 			'default'           => $default_options['link_color'],
 			'type'           	=> 'option',
 			'transport'         => 'postMessage',
@@ -238,16 +238,16 @@ class Maxwell_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'maxwell_theme_options[link_color]', array(
-				'label'      => _x( 'Links and Buttons', 'color setting', 'maxwell-pro' ),
-				'section'    => 'maxwell_pro_section_colors',
-				'settings'   => 'maxwell_theme_options[link_color]',
+			$wp_customize, 'wellington_theme_options[link_color]', array(
+				'label'      => _x( 'Links and Buttons', 'color setting', 'wellington-pro' ),
+				'section'    => 'wellington_pro_section_colors',
+				'settings'   => 'wellington_theme_options[link_color]',
 				'priority' => 10,
 			)
 		) );
 
 		// Add Top Navigation Color setting.
-		$wp_customize->add_setting( 'maxwell_theme_options[top_navi_color]', array(
+		$wp_customize->add_setting( 'wellington_theme_options[top_navi_color]', array(
 			'default'           => $default_options['top_navi_color'],
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
@@ -255,16 +255,16 @@ class Maxwell_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'maxwell_theme_options[top_navi_color]', array(
-				'label'      => _x( 'Top Navigation', 'color setting', 'maxwell-pro' ),
-				'section'    => 'maxwell_pro_section_colors',
-				'settings'   => 'maxwell_theme_options[top_navi_color]',
+			$wp_customize, 'wellington_theme_options[top_navi_color]', array(
+				'label'      => _x( 'Top Navigation', 'color setting', 'wellington-pro' ),
+				'section'    => 'wellington_pro_section_colors',
+				'settings'   => 'wellington_theme_options[top_navi_color]',
 				'priority' => 20,
 			)
 		) );
 
 		// Add Navigation Primary Color setting.
-		$wp_customize->add_setting( 'maxwell_theme_options[navi_color]', array(
+		$wp_customize->add_setting( 'wellington_theme_options[navi_color]', array(
 			'default'           => $default_options['navi_color'],
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
@@ -272,16 +272,16 @@ class Maxwell_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'maxwell_theme_options[navi_color]', array(
-				'label'      => _x( 'Main Navigation', 'color setting', 'maxwell-pro' ),
-				'section'    => 'maxwell_pro_section_colors',
-				'settings'   => 'maxwell_theme_options[navi_color]',
+			$wp_customize, 'wellington_theme_options[navi_color]', array(
+				'label'      => _x( 'Main Navigation', 'color setting', 'wellington-pro' ),
+				'section'    => 'wellington_pro_section_colors',
+				'settings'   => 'wellington_theme_options[navi_color]',
 				'priority' => 30,
 			)
 		) );
 
 		// Add Navigation Secondary Color setting.
-		$wp_customize->add_setting( 'maxwell_theme_options[title_color]', array(
+		$wp_customize->add_setting( 'wellington_theme_options[title_color]', array(
 			'default'           => $default_options['title_color'],
 			'type'           	=> 'option',
 			'transport'         => 'postMessage',
@@ -289,16 +289,16 @@ class Maxwell_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'maxwell_theme_options[title_color]', array(
-				'label'      => _x( 'Post Titles', 'color setting', 'maxwell-pro' ),
-				'section'    => 'maxwell_pro_section_colors',
-				'settings'   => 'maxwell_theme_options[title_color]',
+			$wp_customize, 'wellington_theme_options[title_color]', array(
+				'label'      => _x( 'Post Titles', 'color setting', 'wellington-pro' ),
+				'section'    => 'wellington_pro_section_colors',
+				'settings'   => 'wellington_theme_options[title_color]',
 				'priority' => 40,
 			)
 		) );
 
 		// Add Widget Title Color setting.
-		$wp_customize->add_setting( 'maxwell_theme_options[widget_title_color]', array(
+		$wp_customize->add_setting( 'wellington_theme_options[widget_title_color]', array(
 			'default'           => $default_options['widget_title_color'],
 			'type'           	=> 'option',
 			'transport'         => 'postMessage',
@@ -306,10 +306,10 @@ class Maxwell_Pro_Custom_Colors {
 			)
 		);
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'maxwell_theme_options[widget_title_color]', array(
-				'label'      => _x( 'Widget Titles', 'color setting', 'maxwell-pro' ),
-				'section'    => 'maxwell_pro_section_colors',
-				'settings'   => 'maxwell_theme_options[widget_title_color]',
+			$wp_customize, 'wellington_theme_options[widget_title_color]', array(
+				'label'      => _x( 'Widget Titles', 'color setting', 'wellington-pro' ),
+				'section'    => 'wellington_pro_section_colors',
+				'settings'   => 'wellington_theme_options[widget_title_color]',
 				'priority' => 50,
 			)
 		) );
@@ -318,4 +318,4 @@ class Maxwell_Pro_Custom_Colors {
 }
 
 // Run Class.
-add_action( 'init', array( 'Maxwell_Pro_Custom_Colors', 'setup' ) );
+add_action( 'init', array( 'Wellington_Pro_Custom_Colors', 'setup' ) );

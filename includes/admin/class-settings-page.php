@@ -1,10 +1,10 @@
 <?php
 /**
- * Maxwell Pro Settings Page Class
+ * Wellington Pro Settings Page Class
  *
  * Adds a new tab on the themezee plugins page and displays the settings page.
  *
- * @package Maxwell Pro
+ * @package Wellington Pro
  */
 
 // Exit if accessed directly.
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Settings Page Class
  */
-class Maxwell_Pro_Settings_Page {
+class Wellington_Pro_Settings_Page {
 
 	/**
 	 * Setup the Settings Page class
@@ -37,16 +37,16 @@ class Maxwell_Pro_Settings_Page {
 	 */
 	static function add_settings_page() {
 
-		// Return early if Maxwell Theme is not active.
-		if ( ! current_theme_supports( 'maxwell-pro' ) ) {
+		// Return early if Wellington Theme is not active.
+		if ( ! current_theme_supports( 'wellington-pro' ) ) {
 			return;
 		}
 
 		add_theme_page(
-			esc_html__( 'Pro Version', 'maxwell-pro' ),
-			esc_html__( 'Pro Version', 'maxwell-pro' ),
+			esc_html__( 'Pro Version', 'wellington-pro' ),
+			esc_html__( 'Pro Version', 'wellington-pro' ),
 			'edit_theme_options',
-			'maxwell-pro',
+			'wellington-pro',
 			array( __CLASS__, 'display_settings_page' )
 		);
 
@@ -67,18 +67,18 @@ class Maxwell_Pro_Settings_Page {
 
 		<div class="wrap pro-version-wrap">
 
-			<h1><?php echo MAXWELL_PRO_NAME; ?> <?php echo MAXWELL_PRO_VERSION; ?></h1>
+			<h1><?php echo WELLINGTON_PRO_NAME; ?> <?php echo WELLINGTON_PRO_VERSION; ?></h1>
 
-			<div id="maxwell-pro-settings" class="maxwell-pro-settings-wrap">
+			<div id="wellington-pro-settings" class="wellington-pro-settings-wrap">
 
-				<form class="maxwell-pro-settings-form" method="post" action="options.php">
+				<form class="wellington-pro-settings-form" method="post" action="options.php">
 					<?php
-						settings_fields( 'maxwell_pro_settings' );
-						do_settings_sections( 'maxwell_pro_settings' );
+						settings_fields( 'wellington_pro_settings' );
+						do_settings_sections( 'wellington_pro_settings' );
 					?>
 				</form>
 
-				<p><?php printf( __( 'You can find your license keys and manage your active sites on <a href="%s" target="_blank">themezee.com</a>.', 'maxwell-pro' ), __( 'https://themezee.com/license-keys/', 'maxwell-pro' ) . '?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=maxwell-pro&utm_content=license-keys' ); ?></p>
+				<p><?php printf( __( 'You can find your license keys and manage your active sites on <a href="%s" target="_blank">themezee.com</a>.', 'wellington-pro' ), __( 'https://themezee.com/license-keys/', 'wellington-pro' ) . '?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=wellington-pro&utm_content=license-keys' ); ?></p>
 
 			</div>
 
@@ -97,15 +97,15 @@ class Maxwell_Pro_Settings_Page {
 	static function settings_page_css( $hook ) {
 
 		// Load styles and scripts only on theme info page.
-		if ( 'appearance_page_maxwell-pro' != $hook ) {
+		if ( 'appearance_page_wellington-pro' != $hook ) {
 			return;
 		}
 
 		// Embed theme info css style.
-		wp_enqueue_style( 'maxwell-pro-settings-css', plugins_url( '/assets/css/settings.css', dirname( dirname( __FILE__ ) ) ), array(), MAXWELL_PRO_VERSION );
+		wp_enqueue_style( 'wellington-pro-settings-css', plugins_url( '/assets/css/settings.css', dirname( dirname( __FILE__ ) ) ), array(), WELLINGTON_PRO_VERSION );
 
 	}
 }
 
-// Run Maxwell Pro Settings Page Class.
-Maxwell_Pro_Settings_Page::setup();
+// Run Wellington Pro Settings Page Class.
+Wellington_Pro_Settings_Page::setup();

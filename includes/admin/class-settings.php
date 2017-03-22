@@ -1,12 +1,12 @@
 <?php
 /**
- * Maxwell Pro Settings Class
+ * Wellington Pro Settings Class
  *
  * Registers all plugin settings with the WordPress Settings API.
  * Handles license key activation with the ThemeZee Store API.
  *
  * @link https://codex.wordpress.org/Settings_API
- * @package Maxwell Pro
+ * @package Wellington Pro
  */
 
 // Exit if accessed directly.
@@ -16,13 +16,13 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Settings Class
  */
-class Maxwell_Pro_Settings {
+class Wellington_Pro_Settings {
 	/** Singleton *************************************************************/
 
 	/**
 	 * Class instance
 	 *
-	 * @var instance The one true Maxwell_Pro_Settings instance
+	 * @var instance The one true Wellington_Pro_Settings instance
 	 */
 	private static $instance;
 
@@ -36,7 +36,7 @@ class Maxwell_Pro_Settings {
 	/**
 	 * Creates or returns an instance of this class.
 	 *
-	 * @return Maxwell_Pro_Settings A single instance of this class.
+	 * @return Wellington_Pro_Settings A single instance of this class.
 	 */
 	public static function instance() {
 
@@ -63,7 +63,7 @@ class Maxwell_Pro_Settings {
 		add_action( 'admin_init', array( $this, 'check_license' ) );
 
 		// Merge Plugin Options Array from Database with Default Settings array.
-		$this->options = wp_parse_args( get_option( 'maxwell_pro_settings' , array() ), $this->default_settings() );
+		$this->options = wp_parse_args( get_option( 'wellington_pro_settings' , array() ), $this->default_settings() );
 	}
 
 	/**
@@ -110,33 +110,33 @@ class Maxwell_Pro_Settings {
 	function register_settings() {
 
 		// Make sure that options exist in database.
-		if ( false == get_option( 'maxwell_pro_settings' ) ) {
-			add_option( 'maxwell_pro_settings' );
+		if ( false == get_option( 'wellington_pro_settings' ) ) {
+			add_option( 'wellington_pro_settings' );
 		}
 
 		// Add License Section.
-		add_settings_section( 'maxwell_pro_settings_license', esc_html__( 'Automatic Updates', 'maxwell-pro' ), array( $this, 'license_section_intro' ), 'maxwell_pro_settings' );
+		add_settings_section( 'wellington_pro_settings_license', esc_html__( 'Automatic Updates', 'wellington-pro' ), array( $this, 'license_section_intro' ), 'wellington_pro_settings' );
 
 		// Add License Status Setting.
 		add_settings_field(
-			'maxwell_pro_settings[license_status]',
-			esc_html__( 'License Status', 'maxwell-pro' ),
+			'wellington_pro_settings[license_status]',
+			esc_html__( 'License Status', 'wellington-pro' ),
 			array( $this, 'license_status' ),
-			'maxwell_pro_settings',
-			'maxwell_pro_settings_license'
+			'wellington_pro_settings',
+			'wellington_pro_settings_license'
 		);
 
 		// Add License Key Setting.
 		add_settings_field(
-			'maxwell_pro_settings[license_key]',
-			esc_html__( 'License Key', 'maxwell-pro' ),
+			'wellington_pro_settings[license_key]',
+			esc_html__( 'License Key', 'wellington-pro' ),
 			array( $this, 'license_key' ),
-			'maxwell_pro_settings',
-			'maxwell_pro_settings_license'
+			'wellington_pro_settings',
+			'wellington_pro_settings_license'
 		);
 
 		// Creates our settings in the options table.
-		register_setting( 'maxwell_pro_settings', 'maxwell_pro_settings', array( $this, 'sanitize_settings' ) );
+		register_setting( 'wellington_pro_settings', 'wellington_pro_settings', array( $this, 'sanitize_settings' ) );
 	}
 
 	/**
@@ -145,7 +145,7 @@ class Maxwell_Pro_Settings {
 	 * @return void
 	 */
 	function license_section_intro() {
-		printf( __( 'Please enter your license key. An active license key is needed for automatic plugin updates and <a href="%s" target="_blank">support</a>.', 'maxwell-pro' ), 'https://themezee.com/support/?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=maxwell-pro&utm_content=support' );
+		printf( __( 'Please enter your license key. An active license key is needed for automatic plugin updates and <a href="%s" target="_blank">support</a>.', 'wellington-pro' ), 'https://themezee.com/support/?utm_source=plugin-settings&utm_medium=textlink&utm_campaign=wellington-pro&utm_content=support' );
 
 	}
 
@@ -161,7 +161,7 @@ class Maxwell_Pro_Settings {
 			return $input;
 		}
 
-		$saved    = get_option( 'maxwell_pro_settings', array() );
+		$saved    = get_option( 'wellington_pro_settings', array() );
 		if ( ! is_array( $saved ) ) {
 			$saved = array();
 		}
@@ -184,7 +184,7 @@ class Maxwell_Pro_Settings {
 	 *
 	 * Renders license status field.
 	 *
-	 * @global $this->options Array of all the Maxwell Pro Options
+	 * @global $this->options Array of all the Wellington Pro Options
 	 * @return void
 	 */
 	function license_status() {
@@ -195,25 +195,25 @@ class Maxwell_Pro_Settings {
 
 		if ( 'valid' === $license_status ) {
 
-			$html .= '<span class="license-status license-active">' . esc_html__( 'Active', 'maxwell-pro' ) . '</span>';
-			$html .= '<span class="license-description">' . esc_html__( 'You are receiving updates.', 'maxwell-pro' ) . '</span>';
+			$html .= '<span class="license-status license-active">' . esc_html__( 'Active', 'wellington-pro' ) . '</span>';
+			$html .= '<span class="license-description">' . esc_html__( 'You are receiving updates.', 'wellington-pro' ) . '</span>';
 
 		} elseif ( 'expired' === $license_status ) {
 
-			$renewal_url = esc_url( add_query_arg( array( 'edd_license_key' => $license_key, 'download_id' => MAXWELL_PRO_PRODUCT_ID ), 'https://themezee.com/checkout' ) );
+			$renewal_url = esc_url( add_query_arg( array( 'edd_license_key' => $license_key, 'download_id' => WELLINGTON_PRO_PRODUCT_ID ), 'https://themezee.com/checkout' ) );
 
-			$html .= '<span class="license-status license-expired">' . esc_html__( 'Expired', 'maxwell-pro' ) . '</span>';
-			$html .= '<p class="license-description">' . esc_html__( 'Your license has expired, renew today to continue getting updates and support!', 'maxwell-pro' ) . '</p>';
-			$html .= '<a href="' . esc_url( $renewal_url ) . '" class="license-renewal button-primary">' . esc_html__( 'Renew Your License', 'maxwell-pro' ) . '</a>';
+			$html .= '<span class="license-status license-expired">' . esc_html__( 'Expired', 'wellington-pro' ) . '</span>';
+			$html .= '<p class="license-description">' . esc_html__( 'Your license has expired, renew today to continue getting updates and support!', 'wellington-pro' ) . '</p>';
+			$html .= '<a href="' . esc_url( $renewal_url ) . '" class="license-renewal button-primary">' . esc_html__( 'Renew Your License', 'wellington-pro' ) . '</a>';
 
 		} elseif ( 'invalid' === $license_status ) {
 
-			$html .= '<span class="license-status license-invalid">' . esc_html__( 'Invalid', 'maxwell-pro' ) . '</span>';
-			$html .= '<p class="license-description">' . esc_html__( 'Please make sure that you have not reached the site limit and expiration date.', 'maxwell-pro' ) . '</p>';
+			$html .= '<span class="license-status license-invalid">' . esc_html__( 'Invalid', 'wellington-pro' ) . '</span>';
+			$html .= '<p class="license-description">' . esc_html__( 'Please make sure that you have not reached the site limit and expiration date.', 'wellington-pro' ) . '</p>';
 
 		} else {
 
-			$html .= '<span class="license-status license-inactive">' . esc_html__( 'Inactive', 'maxwell-pro' ) . '</span>';
+			$html .= '<span class="license-status license-inactive">' . esc_html__( 'Inactive', 'wellington-pro' ) . '</span>';
 
 		}
 
@@ -225,7 +225,7 @@ class Maxwell_Pro_Settings {
 	 *
 	 * Renders license key field.
 	 *
-	 * @global $this->options Array of all the Maxwell Pro Options
+	 * @global $this->options Array of all the Wellington Pro Options
 	 * @return void
 	 */
 	function license_key() {
@@ -236,13 +236,13 @@ class Maxwell_Pro_Settings {
 
 		if ( 'valid' === $license_status && ! empty( $license_key ) ) {
 
-			$html .= '<input type="text" class="regular-text" readonly="readonly" id="maxwell_pro_settings[license_key]" name="maxwell_pro_settings[license_key]" value="' . esc_attr( stripslashes( $license_key ) ) . '"/><br/><br/>';
-			$html .= '<input type="submit" class="button" name="maxwell_pro_deactivate_license" value="' . esc_attr__( 'Deactivate License', 'maxwell-pro' ) . '"/>';
+			$html .= '<input type="text" class="regular-text" readonly="readonly" id="wellington_pro_settings[license_key]" name="wellington_pro_settings[license_key]" value="' . esc_attr( stripslashes( $license_key ) ) . '"/><br/><br/>';
+			$html .= '<input type="submit" class="button" name="wellington_pro_deactivate_license" value="' . esc_attr__( 'Deactivate License', 'wellington-pro' ) . '"/>';
 
 		} else {
 
-			$html .= '<input type="text" class="regular-text" id="maxwell_pro_settings[license_key]" name="maxwell_pro_settings[license_key]" value="' . esc_attr( stripslashes( $license_key ) ) . '"/><br/><br/>';
-			$html .= '<input type="submit" class="button" name="maxwell_pro_activate_license" value="' . esc_attr__( 'Activate License', 'maxwell-pro' ) . '"/>';
+			$html .= '<input type="text" class="regular-text" id="wellington_pro_settings[license_key]" name="wellington_pro_settings[license_key]" value="' . esc_attr( stripslashes( $license_key ) ) . '"/><br/><br/>';
+			$html .= '<input type="submit" class="button" name="wellington_pro_activate_license" value="' . esc_attr__( 'Activate License', 'wellington-pro' ) . '"/>';
 
 		}
 
@@ -256,33 +256,33 @@ class Maxwell_Pro_Settings {
 	 */
 	public function activate_license() {
 
-		if ( ! isset( $_POST['maxwell_pro_settings'] ) ) {
+		if ( ! isset( $_POST['wellington_pro_settings'] ) ) {
 			return;
 		}
 
-		if ( ! isset( $_POST['maxwell_pro_activate_license'] ) ) {
+		if ( ! isset( $_POST['wellington_pro_activate_license'] ) ) {
 			return;
 		}
 
-		if ( ! isset( $_POST['maxwell_pro_settings']['license_key'] ) ) {
+		if ( ! isset( $_POST['wellington_pro_settings']['license_key'] ) ) {
 			return;
 		}
 
 		// Retrieve the license from the database.
 		$status  = $this->get( 'license_status' );
-		$license = trim( $_POST['maxwell_pro_settings']['license_key'] );
+		$license = trim( $_POST['wellington_pro_settings']['license_key'] );
 
 		// Data to send in our API request.
 		$api_params = array(
 			'edd_action' => 'activate_license',
 			'license' 	=> $license,
-			'item_name' => urlencode( MAXWELL_PRO_NAME ),
-			'item_id'   => MAXWELL_PRO_PRODUCT_ID,
+			'item_name' => urlencode( WELLINGTON_PRO_NAME ),
+			'item_id'   => WELLINGTON_PRO_PRODUCT_ID,
 			'url'       => home_url(),
 		);
 
 		// Call the custom API.
-		$response = wp_remote_post( MAXWELL_PRO_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
+		$response = wp_remote_post( WELLINGTON_PRO_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
 
 		// Make sure the response came back okay.
 		if ( is_wp_error( $response ) ) {
@@ -296,9 +296,9 @@ class Maxwell_Pro_Settings {
 
 		$options['license_status'] = $license_data->license;
 
-		update_option( 'maxwell_pro_settings', $options );
+		update_option( 'wellington_pro_settings', $options );
 
-		delete_transient( 'maxwell_pro_license_check' );
+		delete_transient( 'wellington_pro_license_check' );
 	}
 
 	/**
@@ -308,32 +308,32 @@ class Maxwell_Pro_Settings {
 	 */
 	public function deactivate_license() {
 
-		if ( ! isset( $_POST['maxwell_pro_settings'] ) ) {
+		if ( ! isset( $_POST['wellington_pro_settings'] ) ) {
 			return;
 		}
 
-		if ( ! isset( $_POST['maxwell_pro_deactivate_license'] ) ) {
+		if ( ! isset( $_POST['wellington_pro_deactivate_license'] ) ) {
 			return;
 		}
 
-		if ( ! isset( $_POST['maxwell_pro_settings']['license_key'] ) ) {
+		if ( ! isset( $_POST['wellington_pro_settings']['license_key'] ) ) {
 			return;
 		}
 
 		// Retrieve the license from the database.
-		$license = trim( $_POST['maxwell_pro_settings']['license_key'] );
+		$license = trim( $_POST['wellington_pro_settings']['license_key'] );
 
 		// Data to send in our API request.
 		$api_params = array(
 			'edd_action' => 'deactivate_license',
 			'license' 	=> $license,
-			'item_name' => urlencode( MAXWELL_PRO_NAME ),
-			'item_id'   => MAXWELL_PRO_PRODUCT_ID,
+			'item_name' => urlencode( WELLINGTON_PRO_NAME ),
+			'item_id'   => WELLINGTON_PRO_PRODUCT_ID,
 			'url'       => home_url(),
 		);
 
 		// Call the custom API.
-		$response = wp_remote_post( MAXWELL_PRO_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
+		$response = wp_remote_post( WELLINGTON_PRO_STORE_API_URL, array( 'timeout' => 35, 'sslverify' => true, 'body' => $api_params ) );
 
 		// Make sure the response came back okay.
 		if ( is_wp_error( $response ) ) {
@@ -344,9 +344,9 @@ class Maxwell_Pro_Settings {
 
 		$options['license_status'] = 'inactive';
 
-		update_option( 'maxwell_pro_settings', $options );
+		update_option( 'wellington_pro_settings', $options );
 
-		delete_transient( 'maxwell_pro_license_check' );
+		delete_transient( 'wellington_pro_license_check' );
 	}
 
 	/**
@@ -356,11 +356,11 @@ class Maxwell_Pro_Settings {
 	 */
 	public function check_license() {
 
-		if ( ! empty( $_POST['maxwell_pro_settings'] ) ) {
+		if ( ! empty( $_POST['wellington_pro_settings'] ) ) {
 			return; // Don't fire when saving settings.
 		}
 
-		$status = get_transient( 'maxwell_pro_license_check' );
+		$status = get_transient( 'wellington_pro_license_check' );
 
 		// Run the license check a maximum of once per day.
 		if ( false === $status ) {
@@ -374,13 +374,13 @@ class Maxwell_Pro_Settings {
 				$api_params = array(
 					'edd_action' => 'check_license',
 					'license' 	=> $license_key,
-					'item_name' => urlencode( MAXWELL_PRO_NAME ),
-					'item_id'   => MAXWELL_PRO_PRODUCT_ID,
+					'item_name' => urlencode( WELLINGTON_PRO_NAME ),
+					'item_id'   => WELLINGTON_PRO_PRODUCT_ID,
 					'url'       => home_url(),
 				);
 
 				// Call the custom API.
-				$response = wp_remote_post( MAXWELL_PRO_STORE_API_URL, array( 'timeout' => 25, 'sslverify' => true, 'body' => $api_params ) );
+				$response = wp_remote_post( WELLINGTON_PRO_STORE_API_URL, array( 'timeout' => 25, 'sslverify' => true, 'body' => $api_params ) );
 
 				// Make sure the response came back okay.
 				if ( is_wp_error( $response ) ) {
@@ -399,9 +399,9 @@ class Maxwell_Pro_Settings {
 
 			$options['license_status'] = $status;
 
-			update_option( 'maxwell_pro_settings', $options );
+			update_option( 'wellington_pro_settings', $options );
 
-			set_transient( 'maxwell_pro_license_check', $status, DAY_IN_SECONDS );
+			set_transient( 'wellington_pro_license_check', $status, DAY_IN_SECONDS );
 
 		}
 
@@ -419,4 +419,4 @@ class Maxwell_Pro_Settings {
 }
 
 // Run Setting Class.
-Maxwell_Pro_Settings::instance();
+Wellington_Pro_Settings::instance();

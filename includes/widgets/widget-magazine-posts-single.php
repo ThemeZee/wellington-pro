@@ -5,13 +5,13 @@
  * Displays a single post from a selected category.
  * Intented to be used in the Magazine Homepage widget area to built a magazine layouted page.
  *
- * @package Maxwell Pro
+ * @package Wellington Pro
  */
 
 /**
  * Magazine Widget Class
  */
-class Maxwell_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
+class Wellington_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 
 	/**
 	 * Widget Constructor
@@ -20,11 +20,11 @@ class Maxwell_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 
 		// Setup Widget.
 		parent::__construct(
-			'maxwell-magazine-posts-single', // ID.
-			esc_html__( 'Magazine (Single Post)', 'maxwell-pro' ), // Name.
+			'wellington-magazine-posts-single', // ID.
+			esc_html__( 'Magazine (Single Post)', 'wellington-pro' ), // Name.
 			array(
-				'classname' => 'maxwell-magazine-single-widget',
-				'description' => esc_html__( 'Displays a single post from a selected category. Please use this widget ONLY in the Magazine Homepage widget area.', 'maxwell-pro' ),
+				'classname' => 'wellington-magazine-single-widget',
+				'description' => esc_html__( 'Displays a single post from a selected category. Please use this widget ONLY in the Magazine Homepage widget area.', 'wellington-pro' ),
 				'customize_selective_refresh' => true,
 			) // Args.
 		);
@@ -54,7 +54,7 @@ class Maxwell_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 	function widget( $args, $instance ) {
 
 		// Show message to admins if Theme is not updated.
-		if ( ! function_exists( 'maxwell_get_magazine_post_ids' ) ) {
+		if ( ! function_exists( 'wellington_get_magazine_post_ids' ) ) {
 			if ( current_user_can( 'edit_theme_options' ) ) {
 				echo '<p>INFO: Magazine Widget is missing theme functions and can not be displayed. Please update the theme to the latest version. This message is only shown to admins.</p>';
 			}
@@ -104,7 +104,7 @@ class Maxwell_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 	function render( $settings ) {
 
 		// Get cached post id.
-		$post_id = maxwell_get_magazine_post_ids( $this->id, $settings['category'], 1 );
+		$post_id = wellington_get_magazine_post_ids( $this->id, $settings['category'], 1 );
 
 		// Fetch posts from database.
 		$query_arguments = array(
@@ -118,7 +118,7 @@ class Maxwell_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 		if ( $posts_query->have_posts() ) :
 
 			// Limit the number of words for the excerpt.
-			add_filter( 'excerpt_length', 'maxwell_excerpt_length' );
+			add_filter( 'excerpt_length', 'wellington_excerpt_length' );
 
 			// Display Posts.
 			while ( $posts_query->have_posts() ) : $posts_query->the_post();
@@ -128,7 +128,7 @@ class Maxwell_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 			endwhile;
 
 			// Remove excerpt filter.
-			remove_filter( 'excerpt_length', 'maxwell_excerpt_length' );
+			remove_filter( 'excerpt_length', 'wellington_excerpt_length' );
 
 		endif;
 
@@ -150,7 +150,7 @@ class Maxwell_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 		if ( ! empty( $widget_title ) ) :
 
 			// Link Widget Title to category archive when possible.
-			$widget_title = maxwell_magazine_widget_title( $widget_title, $settings['category'] );
+			$widget_title = wellington_magazine_widget_title( $widget_title, $settings['category'] );
 
 			// Display Widget Title.
 			echo $args['before_title'] . $widget_title . $args['after_title'];
@@ -171,7 +171,7 @@ class Maxwell_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['category'] = (int) $new_instance['category'];
 
-		maxwell_flush_magazine_post_ids();
+		wellington_flush_magazine_post_ids();
 
 		return $instance;
 	}
@@ -188,16 +188,16 @@ class Maxwell_Pro_Magazine_Posts_Single_Widget extends WP_Widget {
 		?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'maxwell-pro' ); ?>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'wellington-pro' ); ?>
 				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $settings['title'] ); ?>" />
 			</label>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php esc_html_e( 'Category:', 'maxwell-pro' ); ?></label><br/>
+			<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php esc_html_e( 'Category:', 'wellington-pro' ); ?></label><br/>
 			<?php // Display Category Select.
 				$args = array(
-					'show_option_all'    => esc_html__( 'All Categories', 'maxwell-pro' ),
+					'show_option_all'    => esc_html__( 'All Categories', 'wellington-pro' ),
 					'show_count' 		 => true,
 					'hide_empty'		 => false,
 					'selected'           => $settings['category'],

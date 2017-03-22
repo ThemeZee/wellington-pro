@@ -2,9 +2,9 @@
 /**
  * Footer Widgets
  *
- * Registers footer widget areas and hooks into the Maxwell theme to display widgets
+ * Registers footer widget areas and hooks into the Wellington theme to display widgets
  *
- * @package Maxwell Pro
+ * @package Wellington Pro
  */
 
 // Exit if accessed directly.
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Header Bar Class
  */
-class Maxwell_Pro_Header_Bar {
+class Wellington_Pro_Header_Bar {
 
 	/**
 	 * Footer Widgets Setup
@@ -22,13 +22,13 @@ class Maxwell_Pro_Header_Bar {
 	 */
 	static function setup() {
 
-		// Return early if Maxwell Theme is not active.
-		if ( ! current_theme_supports( 'maxwell-pro' ) ) {
+		// Return early if Wellington Theme is not active.
+		if ( ! current_theme_supports( 'wellington-pro' ) ) {
 			return;
 		}
 
 		// Display Header Bar.
-		add_action( 'maxwell_header_bar', array( __CLASS__, 'display_header_bar' ) );
+		add_action( 'wellington_header_bar', array( __CLASS__, 'display_header_bar' ) );
 
 	}
 
@@ -96,21 +96,21 @@ class Maxwell_Pro_Header_Bar {
 	 */
 	static function register_nav_menus() {
 
-		// Return early if Maxwell Theme is not active.
-		if ( ! current_theme_supports( 'maxwell-pro' ) ) {
+		// Return early if Wellington Theme is not active.
+		if ( ! current_theme_supports( 'wellington-pro' ) ) {
 			return;
 		}
 
 		register_nav_menus( array(
-			'secondary' => esc_html__( 'Top Navigation', 'maxwell-pro' ),
-			'social' => esc_html__( 'Social Icons', 'maxwell-pro' ),
+			'secondary' => esc_html__( 'Top Navigation', 'wellington-pro' ),
+			'social' => esc_html__( 'Social Icons', 'wellington-pro' ),
 		) );
 
 	}
 }
 
 // Run Class.
-add_action( 'init', array( 'Maxwell_Pro_Header_Bar', 'setup' ) );
+add_action( 'init', array( 'Wellington_Pro_Header_Bar', 'setup' ) );
 
 // Register navigation menus in backend.
-add_action( 'after_setup_theme', array( 'Maxwell_Pro_Header_Bar', 'register_nav_menus' ), 20 );
+add_action( 'after_setup_theme', array( 'Wellington_Pro_Header_Bar', 'register_nav_menus' ), 20 );

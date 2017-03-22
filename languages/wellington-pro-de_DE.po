@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes + Pro Versions + Add-ons package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Maxwell Pro\n"
+"Project-Id-Version: Wellington Pro\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
 "POT-Creation-Date: 2017-03-17 16:56+0100\n"
 "PO-Revision-Date: 2017-03-17 16:56+0100\n"
@@ -395,7 +395,7 @@ msgstr ""
 "Zeigt die Beiträge einer gewählten Kategorie in einer vertikalen Box. Bitte "
 "verwende dieses Widget NUR in dem Magazin Startseite Widgetbereich."
 
-#: maxwell-pro.php:211
+#: wellington-pro.php:211
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -1589,23 +1589,23 @@ msgstr "Einstellungen"
 #~ msgid "Review Leeway"
 #~ msgstr "Leeway bewerten"
 
-#~ msgid "https://themezee.com/themes/maxwell/"
-#~ msgstr "https://themezee.com/de/themes/maxwell/"
+#~ msgid "https://themezee.com/themes/wellington/"
+#~ msgstr "https://themezee.com/de/themes/wellington/"
 
-#~ msgid "https://themezee.com/docs/maxwell-documentation/"
-#~ msgstr "https://themezee.com/de/docs/maxwell-dokumentation/"
+#~ msgid "https://themezee.com/docs/wellington-documentation/"
+#~ msgstr "https://themezee.com/de/docs/wellington-dokumentation/"
 
-#~ msgid "https://wordpress.org/support/theme/maxwell/reviews/?filter=5"
-#~ msgstr "https://wordpress.org/support/theme/maxwell/reviews/?filter=5"
+#~ msgid "https://wordpress.org/support/theme/wellington/reviews/?filter=5"
+#~ msgstr "https://wordpress.org/support/theme/wellington/reviews/?filter=5"
 
-#~ msgid "https://themezee.com/addons/maxwell-pro/"
-#~ msgstr "https://themezee.com/de/addons/maxwell-pro/"
+#~ msgid "https://themezee.com/addons/wellington-pro/"
+#~ msgstr "https://themezee.com/de/addons/wellington-pro/"
 
 #~ msgid "Three Columns without Sidebar"
 #~ msgstr "Drei Spalten ohne Sidebar"
 
-#~ msgid "Review Maxwell"
-#~ msgstr "Maxwell bewerten"
+#~ msgid "Review Wellington"
+#~ msgstr "Wellington bewerten"
 
 #~ msgid "Comment navigation"
 #~ msgstr "Kommentar-Navigation"

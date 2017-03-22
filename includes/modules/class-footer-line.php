@@ -5,7 +5,7 @@
  * Displays credit link and footer text based on theme options
  * Registers and displays footer navigation
  *
- * @package Maxwell Pro
+ * @package Wellington Pro
  */
 
 // Exit if accessed directly.
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Footer Line Class
  */
-class Maxwell_Pro_Footer_Line {
+class Wellington_Pro_Footer_Line {
 
 	/**
 	 * Footer Line Setup
@@ -23,20 +23,20 @@ class Maxwell_Pro_Footer_Line {
 	 */
 	static function setup() {
 
-		// Return early if Maxwell Theme is not active.
-		if ( ! current_theme_supports( 'maxwell-pro' ) ) {
+		// Return early if Wellington Theme is not active.
+		if ( ! current_theme_supports( 'wellington-pro' ) ) {
 			return;
 		}
 
 		// Remove default footer text function and replace it with new one.
-		remove_action( 'maxwell_footer_text', 'maxwell_footer_text' );
-		add_action( 'maxwell_footer_text', array( __CLASS__, 'footer_text' ) );
+		remove_action( 'wellington_footer_text', 'wellington_footer_text' );
+		add_action( 'wellington_footer_text', array( __CLASS__, 'footer_text' ) );
 
 		// Add Footer Settings in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'footer_settings' ) );
 
 		// Display footer navigation.
-		add_action( 'maxwell_footer_menu', array( __CLASS__, 'display_footer_menu' ) );
+		add_action( 'wellington_footer_menu', array( __CLASS__, 'display_footer_menu' ) );
 
 	}
 
@@ -48,7 +48,7 @@ class Maxwell_Pro_Footer_Line {
 	static function footer_text() {
 
 		// Get Theme Options from Database.
-		$theme_options = Maxwell_Pro_Customizer::get_theme_options();
+		$theme_options = Wellington_Pro_Customizer::get_theme_options();
 
 		// Display Footer Text.
 		if ( '' !== $theme_options['footer_text'] ) :
@@ -60,9 +60,9 @@ class Maxwell_Pro_Footer_Line {
 		// Call Credit Link function of theme if credit link is activated.
 		if ( true === $theme_options['credit_link'] ) :
 
-			if ( function_exists( 'maxwell_footer_text' ) ) :
+			if ( function_exists( 'wellington_footer_text' ) ) :
 
-				maxwell_footer_text();
+				wellington_footer_text();
 
 			endif;
 
@@ -106,42 +106,42 @@ class Maxwell_Pro_Footer_Line {
 	static function footer_settings( $wp_customize ) {
 
 		// Add Sections for Footer Settings.
-		$wp_customize->add_section( 'maxwell_pro_section_footer', array(
-			'title'    => __( 'Footer Settings', 'maxwell-pro' ),
+		$wp_customize->add_section( 'wellington_pro_section_footer', array(
+			'title'    => __( 'Footer Settings', 'wellington-pro' ),
 			'priority' => 90,
-			'panel' => 'maxwell_options_panel',
+			'panel' => 'wellington_options_panel',
 			)
 		);
 
 		// Add Footer Text setting.
-		$wp_customize->add_setting( 'maxwell_theme_options[footer_text]', array(
+		$wp_customize->add_setting( 'wellington_theme_options[footer_text]', array(
 			'default'           => '',
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
 			'sanitize_callback' => array( __CLASS__, 'sanitize_footer_text' ),
 			)
 		);
-		$wp_customize->add_control( 'maxwell_theme_options[footer_text]', array(
-			'label'    => __( 'Footer Text', 'maxwell-pro' ),
-			'section'  => 'maxwell_pro_section_footer',
-			'settings' => 'maxwell_theme_options[footer_text]',
+		$wp_customize->add_control( 'wellington_theme_options[footer_text]', array(
+			'label'    => __( 'Footer Text', 'wellington-pro' ),
+			'section'  => 'wellington_pro_section_footer',
+			'settings' => 'wellington_theme_options[footer_text]',
 			'type'     => 'textarea',
 			'priority' => 1,
 			)
 		);
 
 		// Add Credit Link setting.
-		$wp_customize->add_setting( 'maxwell_theme_options[credit_link]', array(
+		$wp_customize->add_setting( 'wellington_theme_options[credit_link]', array(
 			'default'           => true,
 			'type'           	=> 'option',
 			'transport'         => 'refresh',
-			'sanitize_callback' => 'maxwell_sanitize_checkbox',
+			'sanitize_callback' => 'wellington_sanitize_checkbox',
 			)
 		);
-		$wp_customize->add_control( 'maxwell_theme_options[credit_link]', array(
-			'label'    => __( 'Display Credit Link to ThemeZee on footer line', 'maxwell-pro' ),
-			'section'  => 'maxwell_pro_section_footer',
-			'settings' => 'maxwell_theme_options[credit_link]',
+		$wp_customize->add_control( 'wellington_theme_options[credit_link]', array(
+			'label'    => __( 'Display Credit Link to ThemeZee on footer line', 'wellington-pro' ),
+			'section'  => 'wellington_pro_section_footer',
+			'settings' => 'wellington_theme_options[credit_link]',
 			'type'     => 'checkbox',
 			'priority' => 2,
 			)
@@ -171,18 +171,18 @@ class Maxwell_Pro_Footer_Line {
 	 */
 	static function register_footer_menu() {
 
-		// Return early if Maxwell Theme is not active.
-		if ( ! current_theme_supports( 'maxwell-pro' ) ) {
+		// Return early if Wellington Theme is not active.
+		if ( ! current_theme_supports( 'wellington-pro' ) ) {
 			return;
 		}
 
-		register_nav_menu( 'footer', esc_html__( 'Footer Navigation', 'maxwell-pro' ) );
+		register_nav_menu( 'footer', esc_html__( 'Footer Navigation', 'wellington-pro' ) );
 
 	}
 }
 
 // Run Class.
-add_action( 'init', array( 'Maxwell_Pro_Footer_Line', 'setup' ) );
+add_action( 'init', array( 'Wellington_Pro_Footer_Line', 'setup' ) );
 
 // Register footer navigation in backend.
-add_action( 'after_setup_theme', array( 'Maxwell_Pro_Footer_Line', 'register_footer_menu' ), 20 );
+add_action( 'after_setup_theme', array( 'Wellington_Pro_Footer_Line', 'register_footer_menu' ), 20 );

@@ -2,7 +2,7 @@
 /**
  * Custom Font Control for the Customizer
  *
- * @package Maxwell Pro
+ * @package Wellington Pro
  */
 
 /**
@@ -13,14 +13,14 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 	/**
 	 * Displays a custom Font control. Allows to switch fonts for particular elements on the theme.
 	 */
-	class Maxwell_Pro_Customize_Font_Control extends WP_Customize_Control {
+	class Wellington_Pro_Customize_Font_Control extends WP_Customize_Control {
 
 		/**
 		 * Declare the control type. Critical for JS constructor.
 		 *
 		 * @var string
 		 */
-		public $type = 'maxwell_pro_custom_font';
+		public $type = 'wellington_pro_custom_font';
 
 		/**
 		 * Localization Strings.
@@ -48,16 +48,16 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 
 			// Make Buttons translateable.
 			$this->l10n = array(
-				'previous' => __( 'Previous Font', 'maxwell-pro' ),
-				'next' => __( 'Next Font', 'maxwell-pro' ),
-				'standard' => _x( 'Default', 'default font button', 'maxwell-pro' ),
+				'previous' => __( 'Previous Font', 'wellington-pro' ),
+				'next' => __( 'Next Font', 'wellington-pro' ),
+				'standard' => _x( 'Default', 'default font button', 'wellington-pro' ),
 			);
 
 			// Get Theme Options.
-			$theme_options = Maxwell_Pro_Customizer::get_theme_options();
+			$theme_options = Wellington_Pro_Customizer::get_theme_options();
 
 			// Set Fonts.
-			$this->fonts = Maxwell_Pro_Custom_Font_Lists::get_fonts( $theme_options['available_fonts'] );
+			$this->fonts = Wellington_Pro_Custom_Font_Lists::get_fonts( $theme_options['available_fonts'] );
 
 			parent::__construct( $manager, $id, $args );
 
@@ -71,7 +71,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 		public function enqueue() {
 
 			// Register and Enqueue Custom Font JS Constructor.
-			wp_enqueue_script( 'maxwell-pro-custom-font-control', MAXWELL_PRO_PLUGIN_URL . 'assets/js/custom-font-control.js', array( 'customize-controls' ), MAXWELL_PRO_VERSION, true );
+			wp_enqueue_script( 'wellington-pro-custom-font-control', WELLINGTON_PRO_PLUGIN_URL . 'assets/js/custom-font-control.js', array( 'customize-controls' ), WELLINGTON_PRO_VERSION, true );
 
 		}
 

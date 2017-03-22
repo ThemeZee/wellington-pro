@@ -2,9 +2,9 @@
 /**
  * Footer Widgets
  *
- * Registers footer widget areas and hooks into the Maxwell theme to display widgets
+ * Registers footer widget areas and hooks into the Wellington theme to display widgets
  *
- * @package Maxwell Pro
+ * @package Wellington Pro
  */
 
 // Exit if accessed directly.
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Footer Widgets Class
  */
-class Maxwell_Pro_Footer_Widgets {
+class Wellington_Pro_Footer_Widgets {
 
 	/**
 	 * Footer Widgets Setup
@@ -22,20 +22,20 @@ class Maxwell_Pro_Footer_Widgets {
 	 */
 	static function setup() {
 
-		// Return early if Maxwell Theme is not active.
-		if ( ! current_theme_supports( 'maxwell-pro' ) ) {
+		// Return early if Wellington Theme is not active.
+		if ( ! current_theme_supports( 'wellington-pro' ) ) {
 			return;
 		}
 
 		// Display widgets.
-		add_action( 'maxwell_before_footer', array( __CLASS__, 'display_widgets' ) );
+		add_action( 'wellington_before_footer', array( __CLASS__, 'display_widgets' ) );
 
 	}
 
 	/**
 	 * Displays Footer Widgets
 	 *
-	 * Hooks into the maxwell_before_footer action hook in footer area.
+	 * Hooks into the wellington_before_footer action hook in footer area.
 	 */
 	static function display_widgets() {
 
@@ -67,16 +67,16 @@ class Maxwell_Pro_Footer_Widgets {
 	 */
 	static function register_widgets() {
 
-		// Return early if Maxwell Theme is not active.
-		if ( ! current_theme_supports( 'maxwell-pro' ) ) {
+		// Return early if Wellington Theme is not active.
+		if ( ! current_theme_supports( 'wellington-pro' ) ) {
 			return;
 		}
 
 		// Register Footer widget area.
 		register_sidebar( array(
-			'name' => esc_html__( 'Footer', 'maxwell-pro' ),
+			'name' => esc_html__( 'Footer', 'wellington-pro' ),
 			'id' => 'footer',
-			'description' => esc_html__( 'Appears on the footer area.', 'maxwell-pro' ),
+			'description' => esc_html__( 'Appears on the footer area.', 'wellington-pro' ),
 			'before_widget' => '<div class="footer-widget-column"><aside id="%1$s" class="widget %2$s clearfix">',
 			'after_widget' => '</aside></div>',
 			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
@@ -87,7 +87,7 @@ class Maxwell_Pro_Footer_Widgets {
 }
 
 // Run Class.
-add_action( 'init', array( 'Maxwell_Pro_Footer_Widgets', 'setup' ) );
+add_action( 'init', array( 'Wellington_Pro_Footer_Widgets', 'setup' ) );
 
 // Register widgets in backend.
-add_action( 'widgets_init', array( 'Maxwell_Pro_Footer_Widgets', 'register_widgets' ), 20 );
+add_action( 'widgets_init', array( 'Wellington_Pro_Footer_Widgets', 'register_widgets' ), 20 );
