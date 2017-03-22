@@ -1,0 +1,36 @@
+===================================
+Maxwell Pro Changelog
+===================================
+
+Version 1.2
+-----------------------------------
+* added transient caching for Magazine widgets to increase performance
+* changed Magazine widgets to use templates for improved child theme compatibility
+* replaced Magazine Boxed widget with Magazine Horizontal Box and Magazine Vertical Box widgets
+
+Version 1.0.4
+-----------------------------------
+* improved styling of footer navigation menu
+* changed Google Font URL to https in Customizer
+* updated custom color settings for pagination
+* changed HTML markup of header bar
+* updated EDD Plugin Updater class
+
+Version 1.0.3
+-----------------------------------
+* added RTL language support for all Pro features
+* added 18 new Google Fonts to font settings
+
+Version 1.0.2
+-----------------------------------
+* added custom styling for mega menu plugin
+* improved browser prefixing of CSS stylesheets
+
+Version 1.0.1
+-----------------------------------
+* updated plugin uploader class
+* improved code formatting
+
+Version 1.0
+-----------------------------------
+Initial Version
