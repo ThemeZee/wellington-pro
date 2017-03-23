@@ -69,10 +69,10 @@ class Wellington_Pro_Customizer {
 			'navi_color'						=> '#303030',
 			'title_color'						=> '#303030',
 			'widget_title_color'				=> '#303030',
-			'text_font' 						=> 'Titillium Web',
-			'title_font' 						=> 'Amaranth',
-			'navi_font' 						=> 'Titillium Web',
-			'widget_title_font' 				=> 'Amaranth',
+			'text_font' 						=> 'Gudea',
+			'title_font' 						=> 'Magra',
+			'navi_font' 						=> 'Gudea',
+			'widget_title_font' 				=> 'Magra',
 			'available_fonts'					=> 'favorites',
 		);
 

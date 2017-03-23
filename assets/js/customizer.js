@@ -105,7 +105,7 @@
 			$( "head" ).append( googleFontSource );
 
 			// Set CSS.
-			$( '.top-navigation-menu a, .main-navigation-menu a, .footer-navigation-menu a' )
+			$( '.top-navigation-menu a, .main-navigation-menu a' )
 				.css( 'font-family', newval );
 
 		} );

@@ -58,7 +58,7 @@ class Wellington_Pro_Custom_Fonts {
 		$default_options = Wellington_Pro_Customizer::get_default_options();
 
 		// Set Default Text Font.
-		if ( $theme_options['text_font'] != $default_options['text_font'] ) {
+		if ( $theme_options['text_font'] !== $default_options['text_font'] ) {
 
 			$custom_css .= '
 				/* Base Font Setting */
@@ -74,7 +74,7 @@ class Wellington_Pro_Custom_Fonts {
 		}
 
 		// Set Title Font.
-		if ( $theme_options['title_font'] != $default_options['title_font'] ) {
+		if ( $theme_options['title_font'] !== $default_options['title_font'] ) {
 
 			$custom_css .= '
 				/* Headings Font Setting */
@@ -88,13 +88,12 @@ class Wellington_Pro_Custom_Fonts {
 		}
 
 		// Set Navigation Font.
-		if ( $theme_options['navi_font'] != $default_options['navi_font'] ) {
+		if ( $theme_options['navi_font'] !== $default_options['navi_font'] ) {
 
 			$custom_css .= '
 				/* Navigation Font Setting */
 				.top-navigation-menu a,
-				.main-navigation-menu a,
-				.footer-navigation-menu a {
+				.main-navigation-menu a {
 					font-family: "' . esc_attr( $theme_options['navi_font'] ) . '";
 				}
 				';
@@ -102,7 +101,7 @@ class Wellington_Pro_Custom_Fonts {
 		}
 
 		// Set Widget Title Font.
-		if ( $theme_options['widget_title_font'] != $default_options['widget_title_font'] ) {
+		if ( $theme_options['widget_title_font'] !== $default_options['widget_title_font'] ) {
 
 			$custom_css .= '
 				/* Widget Titles Font Setting */
@@ -117,7 +116,6 @@ class Wellington_Pro_Custom_Fonts {
 		}
 
 		return $custom_css;
-
 	}
 
 	/**
@@ -219,7 +217,7 @@ class Wellington_Pro_Custom_Fonts {
 				'label'      => __( 'Base Font', 'wellington-pro' ),
 				'section'    => 'wellington_pro_section_fonts',
 				'settings'   => 'wellington_theme_options[text_font]',
-				'priority' => 1,
+				'priority' => 10,
 			)
 		) );
 
@@ -235,7 +233,7 @@ class Wellington_Pro_Custom_Fonts {
 				'label'      => _x( 'Headings', 'font setting', 'wellington-pro' ),
 				'section'    => 'wellington_pro_section_fonts',
 				'settings'   => 'wellington_theme_options[title_font]',
-				'priority' => 2,
+				'priority' => 20,
 			)
 		) );
 
@@ -251,7 +249,7 @@ class Wellington_Pro_Custom_Fonts {
 				'label'      => _x( 'Navigation', 'font setting', 'wellington-pro' ),
 				'section'    => 'wellington_pro_section_fonts',
 				'settings'   => 'wellington_theme_options[navi_font]',
-				'priority' => 3,
+				'priority' => 30,
 			)
 		) );
 
@@ -267,7 +265,7 @@ class Wellington_Pro_Custom_Fonts {
 				'label'      => _x( 'Widget Titles', 'font setting', 'wellington-pro' ),
 				'section'    => 'wellington_pro_section_fonts',
 				'settings'   => 'wellington_theme_options[widget_title_font]',
-				'priority' => 4,
+				'priority' => 40,
 			)
 		) );
 
@@ -290,10 +288,9 @@ class Wellington_Pro_Custom_Fonts {
 					'popular' => __( 'Most Popular Google Fonts (100)', 'wellington-pro' ),
 					'all' => __( 'All Google Fonts (650)', 'wellington-pro' ),
 					),
-				'priority' => 5,
+				'priority' => 50,
 			)
 		) );
-
 	}
 
 	/**
