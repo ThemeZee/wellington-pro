@@ -14,7 +14,7 @@
 --------------------------------------------------------------*/
 .header-bar-wrap {
 	width: 100%;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
 	background: #fff;
 }
 
@@ -54,7 +54,6 @@
 .top-navigation-menu > .menu-item-has-children > a:after {
 	display: inline-block;
 	margin: 0.6em 0 0 0.4em;
-	color: #303030;
 	content: '\f431';
 	vertical-align: top;
 	text-decoration: inherit;
@@ -71,8 +70,7 @@
 }
 
 .top-navigation-menu a:hover,
-.top-navigation-menu a:active,
-.top-navigation-menu a:hover:after {
+.top-navigation-menu a:active {
 	color: rgba(0,0,0,0.5);
 }
 
@@ -82,8 +80,8 @@
 	display: none;
 	margin: 0;
 	padding: 0;
-	background: #303030;
-	color: #fff;
+	background: #fff;
+	border-top: 1px solid rgba(0,0,0,0.15);
 	list-style-position: outside;
 	list-style-type: none;
 }
@@ -98,25 +96,14 @@
 	padding: 1em;
 	min-width: 250px;
 	min-width: 16rem;
-	border-bottom: 1px solid rgba(255,255,255,0.1);
+	border-bottom: 1px solid rgba(0,0,0,0.15);
 	font-size: 13px;
 	font-size: 0.8125rem;
-}
-
-.top-navigation-menu ul a:link,
-.top-navigation-menu ul a:visited {
-	color: #fff;
-}
-
-.top-navigation-menu ul a:hover,
-.top-navigation-menu ul a:active {
-	color: rgba(255,255,255,0.5);
 }
 
 .top-navigation-menu ul .menu-item-has-children > a:after {
 	display: inline-block;
 	margin: 0.3em 0 0 0.3em;
-	color: #fff;
 	content: '\f431';
 	vertical-align: top;
 	text-decoration: inherit;
@@ -134,6 +121,7 @@
 .top-navigation-menu li ul ul {
 	top: 0;
 	left: 100%;
+	margin: -1px 0 0;
 }
 
 .top-navigation-menu li.menu-item-has-children:hover > ul,
@@ -142,7 +130,7 @@
 }
 
 .top-navigation-menu li.current-menu-item > a {
-	text-decoration: underline;
+	background: rgba(0,0,0,0.05);
 }
 
 .top-navigation-menu li.current-menu-item > a:after {
@@ -156,14 +144,15 @@
 
 .header-bar .social-icons-menu li a {
 	padding: 0.8em;
+	color: #303030;
 }
 
 .header-bar .social-icons-menu li a:before {
-	color: #303030;
 	font-size: 22px;
 }
 
-.header-bar .social-icons-menu li a:hover:before {
+.header-bar .social-icons-menu li a:hover,
+.header-bar .social-icons-menu li a:active {
 	color: rgba(0,0,0,0.5);
 	text-decoration: none;
 }
@@ -307,10 +296,6 @@
 --------------------------------------------------------------*/
 .footer-navigation {
 	float: right;
-}
-
-.footer-navigation-toggle {
-	display: none;
 }
 
 .footer-navigation-menu {
@@ -523,12 +508,14 @@
 	.top-navigation-toggle {
 		display: inline-block;
 		padding: 0.8em;
+		color: #303030;
 		background: none;
 	}
 
 	.top-navigation-toggle:hover,
 	.top-navigation-toggle:active,
 	.top-navigation-toggle:focus {
+		color: rgba(0,0,0,0.5);
 		background: none;
 		cursor: pointer;
 	}
@@ -536,7 +523,6 @@
 	.top-navigation-toggle:after {
 		display: inline-block;
 		float: left;
-		color: #303030;
 		content: '\f419';
 		vertical-align: middle;
 		text-decoration: inherit;
@@ -548,10 +534,6 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 
-	.top-navigation-toggle:hover:after {
-		color: rgba(0,0,0,0.5);
-	}
-
 	/* Top Navigation Menu */
 	.top-navigation-menu {
 		display: none;
@@ -559,34 +541,23 @@
 		margin: 0;
 		padding: 0;
 		width: 100%;
-		background: #303030;
+		border-top: 1px solid rgba(0,0,0,0.15);
 	}
 
 	.top-navigation-menu a {
 		display: block;
 		clear: left;
 		padding: 1em 1.25em;
-		border-bottom: 1px solid rgba(255,255,255,0.1);
+		border-bottom: 1px solid rgba(0,0,0,0.15);
 	}
 
 	.top-navigation-menu li:last-child a {
 		border-bottom: none;
 	}
 
-	.top-navigation-menu a:link,
-	.top-navigation-menu a:visited {
-		color: #fff;
-	}
-
-	.top-navigation-menu a:hover,
-	.top-navigation-menu a:active {
-		color: rgba(255,255,255,0.5);
-	}
-
 	.top-navigation-menu ul {
 		width: 100%;
 		border: none;
-		border-top: 1px solid rgba(255,255,255,0.1);
 	}
 
 	.top-navigation-menu ul a {
@@ -607,13 +578,17 @@
 		padding-left: 6em;
 	}
 
+	.top-navigation-menu ul li:last-child a {
+		border-bottom: 1px solid rgba(0,0,0,0.15);
+	}
+
 	/* Mobile Submenu Dropdowns */
 	.top-navigation-menu .submenu-dropdown-toggle {
 		display: block;
 		float: right;
 		margin: 0;
 		padding: 0.75em 1.25em;
-		color: #fff;
+		color: #303030;
 	}
 
 	.top-navigation-menu .submenu-dropdown-toggle:before {
@@ -629,8 +604,8 @@
 
 	.top-navigation-menu .submenu-dropdown-toggle:hover,
 	.top-navigation-menu .submenu-dropdown-toggle:active {
-		color: rgba(255,255,255,0.5);
 		cursor: pointer;
+		color: rgba(0,0,0,0.5);
 	}
 
 	.top-navigation-menu .submenu-dropdown-toggle.active:before {

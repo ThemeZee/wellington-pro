@@ -31,6 +31,39 @@
 		} );
 	} );
 
+	/* Top Navigation Color Option */
+	wp.customize( 'wellington_theme_options[top_navi_color]', function( value ) {
+		value.bind( function( newval ) {
+			$( '.header-bar-wrap, .top-navigation-menu ul' )
+				.css( 'background', newval );
+
+			var textcolor, hovercolor, bgcolor, bordercolor;
+
+			if( isColorDark( newval ) ) {
+				textcolor = '#ffffff';
+				hovercolor = 'rgba(255,255,255,0.5)';
+				bgcolor = 'rgba(255,255,255,0.075)';
+				bordercolor = 'rgba(255,255,255,0.1)';
+			} else {
+				textcolor = '#111111';
+				hovercolor = 'rgba(0,0,0,0.5)';
+				bgcolor = 'rgba(0,0,0,0.05)';
+				bordercolor = 'rgba(0,0,0,0.15)';
+			}
+
+			$( '.top-navigation-menu a, .top-navigation-toggle, .top-navigation-menu .submenu-dropdown-toggle, .header-bar .social-icons-menu li a' )
+				.css( 'color', textcolor );
+			$( '.top-navigation-menu a, .top-navigation-toggle, .top-navigation-menu .submenu-dropdown-toggle, .header-bar .social-icons-menu li a' )
+				.hover( function() { $( this ).css( 'color', hovercolor ); },
+						function() { $( this ).css( 'color', textcolor ); }
+				);
+			$( '.top-navigation-menu li.current-menu-item > a' )
+				.css( 'background-color', bgcolor );
+			$( '.header-bar-wrap, .top-navigation-menu, .top-navigation-menu a, .top-navigation-menu ul, .top-navigation-menu ul a, .top-navigation-menu ul li:last-child a' )
+				.css( 'border-color', bordercolor );
+		} );
+	} );
+
 	/* Title Color Option */
 	wp.customize( 'wellington_theme_options[title_color]', function( value ) {
 		value.bind( function( newval ) {
@@ -131,5 +164,31 @@
 
 		} );
 	} );
+
+	function hexdec( hexString ) {
+		hexString = ( hexString + '' ).replace( /[^a-f0-9]/gi, '' );
+		return parseInt( hexString, 16 );
+	}
+
+	function getColorBrightness( hexColor ) {
+
+		// Remove # string.
+		hexColor = hexColor.replace( '#', '' );
+
+		// Convert into RGB.
+		var r = hexdec( hexColor.substring( 0, 2 ) );
+		var g = hexdec( hexColor.substring( 2, 4 ) );
+		var b = hexdec( hexColor.substring( 4, 6 ) );
+
+		return ( ( ( r * 299 ) + ( g * 587 ) + ( b * 114 ) ) / 1000 );
+	}
+
+	function isColorLight( hexColor ) {
+		return ( getColorBrightness( hexColor ) > 130 );
+	}
+
+	function isColorDark( hexColor ) {
+		return ( getColorBrightness( hexColor ) <= 130 );
+	}
 
 } )( jQuery );
