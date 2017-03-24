@@ -223,6 +223,17 @@ class Wellington_Pro_Custom_Colors {
 					color: ' . $theme_options['title_color'] . ';
 				}
 
+				.site-title a:hover,
+				.site-title a:active,
+				.widget-title a:hover,
+				.widget-title a:active,
+				.entry-title a:hover,
+				.entry-title a:active,
+				.post-slider-controls .zeeflex-direction-nav a:hover,
+				.post-slider-controls .zeeflex-direction-nav a:active {
+					color: #ee3333;
+				}
+
 				button:hover,
 				input[type="button"]:hover,
 				input[type="reset"]:hover,
@@ -237,6 +248,8 @@ class Wellington_Pro_Custom_Colors {
 				input[type="submit"]:active,
 				.more-link:hover,
 				.more-link:active,
+				.pagination a:link,
+				.pagination a:visited,
 				.infinite-scroll #infinite-handle span,
 				.tzwb-social-icons .social-icons-menu li a:active,
 				.tzwb-social-icons .social-icons-menu li a:hover {
@@ -276,6 +289,12 @@ class Wellington_Pro_Custom_Colors {
 				.post-slider-controls .zeeflex-direction-nav a:active {
 					color: ' . $theme_options['link_color'] . ';
 				}
+
+				.pagination a:hover,
+				.pagination a:active,
+				.infinite-scroll #infinite-handle span:hover {
+					background: ' . $theme_options['link_color'] . ';
+				}
 			';
 		}
 
@@ -293,11 +312,15 @@ class Wellington_Pro_Custom_Colors {
 				$custom_css .= '
 					.footer-widgets .widget,
 					.footer-widgets .widget-title,
+					.footer-widgets .widget-title a:link,
+					.footer-widgets .widget-title a:visited,
 					.footer-widgets .widget a:link,
 					.footer-widgets .widget a:visited  {
 						color: #111111;
 					}
 
+					.footer-widgets .widget-title a:hover,
+					.footer-widgets .widget-title a:active,
 					.footer-widgets .widget a:hover,
 					.footer-widgets .widget a:active {
 						color: rgba(0,0,0,0.5);
