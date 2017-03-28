@@ -12,7 +12,7 @@ License: GPL v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Wellington Pro
-Copyright(C) 2016, ThemeZee.com - support@themezee.com
+Copyright(C) 2017, ThemeZee.com - support@themezee.com
 
 */
 
@@ -65,7 +65,7 @@ class Wellington_Pro {
 		define( 'WELLINGTON_PRO_VERSION', '1.0' );
 
 		// Define Plugin Name.
-		define( 'WELLINGTON_PRO_PRODUCT_ID', 65584 );
+		define( 'WELLINGTON_PRO_PRODUCT_ID', 113282 );
 
 		// Define Update API URL.
 		define( 'WELLINGTON_PRO_STORE_API_URL', 'https://themezee.com' );
