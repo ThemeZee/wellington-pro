@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wellington Pro\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2017-03-28 11:38+0200\n"
+"POT-Creation-Date: 2017-06-21 17:35+0200\n"
 "PO-Revision-Date: 2016-05-31 09:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
@@ -21,38 +21,30 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: includes/admin/class-admin-notices.php:55
+#: includes/admin/class-admin-notices.php:52
 #, php-format
 msgid ""
 "Please enter your license key for the %1$s add-on in order to receive "
 "updates and support. <a href=\"%2$s\">Enter License Key</a>"
 msgstr ""
 
-#: includes/admin/class-admin-notices.php:60
-#: includes/admin/class-admin-notices.php:89
-#: includes/admin/class-admin-notices.php:114
+#: includes/admin/class-admin-notices.php:57
+#: includes/admin/class-admin-notices.php:86
 msgid "Dismiss Notice"
 msgstr ""
 
-#: includes/admin/class-admin-notices.php:84
+#: includes/admin/class-admin-notices.php:81
 #, php-format
 msgid ""
 "Your license for %1$s has expired. Please <a href=\"%2$s\">renew</a> to "
 "continue getting updates and support!"
 msgstr ""
 
-#: includes/admin/class-admin-notices.php:110
-#, php-format
-msgid ""
-"The %1$s add-on needs the %2$s theme activated in order to work. You should "
-"deactivate %1$s if you have switched to another theme permanently."
-msgstr ""
-
-#: includes/admin/class-admin-notices.php:137
+#: includes/admin/class-admin-notices.php:108
 msgid "Security check failed"
 msgstr ""
 
-#: includes/admin/class-admin-notices.php:137
+#: includes/admin/class-admin-notices.php:108
 #: includes/admin/class-plugin-updater.php:395
 msgid "Error"
 msgstr ""
@@ -320,6 +312,14 @@ msgstr ""
 msgid "Logo Spacing (default: 0)"
 msgstr ""
 
+#: includes/modules/class-scroll-to-top.php:65
+msgid "Scroll to Top"
+msgstr ""
+
+#: includes/modules/class-scroll-to-top.php:81
+msgid "Display Scroll to Top Button"
+msgstr ""
+
 #: includes/widgets/widget-magazine-posts-horizontal-box.php:24
 msgid "Magazine (Horizontal Box)"
 msgstr ""
@@ -330,27 +330,27 @@ msgid ""
 "this widget ONLY in the Magazine Homepage widget area."
 msgstr ""
 
-#: includes/widgets/widget-magazine-posts-horizontal-box.php:206
-#: includes/widgets/widget-magazine-posts-list.php:187
-#: includes/widgets/widget-magazine-posts-sidebar.php:198
-#: includes/widgets/widget-magazine-posts-single.php:185
-#: includes/widgets/widget-magazine-posts-vertical-box.php:206
+#: includes/widgets/widget-magazine-posts-horizontal-box.php:207
+#: includes/widgets/widget-magazine-posts-list.php:188
+#: includes/widgets/widget-magazine-posts-sidebar.php:199
+#: includes/widgets/widget-magazine-posts-single.php:186
+#: includes/widgets/widget-magazine-posts-vertical-box.php:207
 msgid "Title:"
 msgstr ""
 
-#: includes/widgets/widget-magazine-posts-horizontal-box.php:212
-#: includes/widgets/widget-magazine-posts-list.php:193
-#: includes/widgets/widget-magazine-posts-sidebar.php:204
-#: includes/widgets/widget-magazine-posts-single.php:191
-#: includes/widgets/widget-magazine-posts-vertical-box.php:212
+#: includes/widgets/widget-magazine-posts-horizontal-box.php:213
+#: includes/widgets/widget-magazine-posts-list.php:194
+#: includes/widgets/widget-magazine-posts-sidebar.php:205
+#: includes/widgets/widget-magazine-posts-single.php:192
+#: includes/widgets/widget-magazine-posts-vertical-box.php:213
 msgid "Category:"
 msgstr ""
 
-#: includes/widgets/widget-magazine-posts-horizontal-box.php:215
-#: includes/widgets/widget-magazine-posts-list.php:196
-#: includes/widgets/widget-magazine-posts-sidebar.php:207
-#: includes/widgets/widget-magazine-posts-single.php:194
-#: includes/widgets/widget-magazine-posts-vertical-box.php:215
+#: includes/widgets/widget-magazine-posts-horizontal-box.php:216
+#: includes/widgets/widget-magazine-posts-list.php:197
+#: includes/widgets/widget-magazine-posts-sidebar.php:208
+#: includes/widgets/widget-magazine-posts-single.php:195
+#: includes/widgets/widget-magazine-posts-vertical-box.php:216
 msgid "All Categories"
 msgstr ""
 
@@ -364,8 +364,8 @@ msgid ""
 "use this widget ONLY in the Magazine Homepage widget area."
 msgstr ""
 
-#: includes/widgets/widget-magazine-posts-list.php:208
-#: includes/widgets/widget-magazine-posts-sidebar.php:219
+#: includes/widgets/widget-magazine-posts-list.php:209
+#: includes/widgets/widget-magazine-posts-sidebar.php:220
 msgid "Number of posts:"
 msgstr ""
 
@@ -379,7 +379,7 @@ msgid ""
 "Main Sidebar widget area."
 msgstr ""
 
-#: includes/widgets/widget-magazine-posts-sidebar.php:227
+#: includes/widgets/widget-magazine-posts-sidebar.php:228
 msgid "Display post excerpt"
 msgstr ""
 
@@ -403,6 +403,6 @@ msgid ""
 "this widget ONLY in the Magazine Homepage widget area."
 msgstr ""
 
-#: wellington-pro.php:211
+#: wellington-pro.php:212
 msgid "Settings"
 msgstr ""
