@@ -123,7 +123,7 @@ class Wellington_Pro_Footer_Line {
 			'section'  => 'wellington_pro_section_footer',
 			'settings' => 'wellington_theme_options[footer_text]',
 			'type'     => 'textarea',
-			'priority' => 10,
+			'priority' => 30,
 			)
 		);
 
@@ -140,7 +140,7 @@ class Wellington_Pro_Footer_Line {
 			'section'  => 'wellington_pro_section_footer',
 			'settings' => 'wellington_theme_options[credit_link]',
 			'type'     => 'checkbox',
-			'priority' => 20,
+			'priority' => 40,
 			)
 		);
 	}

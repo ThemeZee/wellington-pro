@@ -6,8 +6,13 @@
  * @package Wellington Pro
  */
 
-#customize-control-wellington_theme_options-logo_spacing {
+#customize-control-wellington_theme_options-logo_spacing,
+#customize-control-wellington_theme_options-footer_text {
 	margin-top: 16px;
+}
+
+#customize-control-wellington_theme_options-scroll_top_title {
+	margin-bottom: 0;
 }
 
 #customize-control-wellington_theme_options-footer_text textarea {
