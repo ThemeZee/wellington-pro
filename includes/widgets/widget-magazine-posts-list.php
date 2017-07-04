@@ -24,7 +24,7 @@ class Wellington_Pro_Magazine_Posts_List_Widget extends WP_Widget {
 			esc_html__( 'Magazine (List)', 'wellington-pro' ), // Name.
 			array(
 				'classname' => 'wellington-magazine-list-widget',
-				'description' => esc_html__( 'Displays your posts from a selected category in a simple list layout.', 'wellington-pro' ),
+				'description' => esc_html__( 'Displays your posts from a selected category in a list layout.', 'wellington-pro' ),
 				'customize_selective_refresh' => true,
 			) // Args.
 		);
