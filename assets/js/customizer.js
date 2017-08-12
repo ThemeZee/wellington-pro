@@ -8,6 +8,17 @@
 
 ( function( $ ) {
 
+	/* Author Bio checkbox */
+	wp.customize( 'wellington_theme_options[author_bio]', function( value ) {
+		value.bind( function( newval ) {
+			if ( false === newval ) {
+				hideElement( '.type-post .entry-footer .entry-author' );
+			} else {
+				showElement( '.type-post .entry-footer .entry-author' );
+			}
+		} );
+	} );
+
 	/* Link & Button Color Option */
 	wp.customize( 'wellington_theme_options[link_color]', function( value ) {
 		value.bind( function( newval ) {
@@ -318,6 +329,26 @@
 
 		} );
 	} );
+
+	function hideElement( element ) {
+		$( element ).css({
+			clip: 'rect(1px, 1px, 1px, 1px)',
+			position: 'absolute',
+			width: '1px',
+			height: '1px',
+			overflow: 'hidden'
+		});
+	}
+
+	function showElement( element ) {
+		$( element ).css({
+			clip: 'auto',
+			position: 'relative',
+			width: 'auto',
+			height: 'auto',
+			overflow: 'visible'
+		});
+	}
 
 	function hexdec( hexString ) {
 		hexString = ( hexString + '' ).replace( /[^a-f0-9]/gi, '' );

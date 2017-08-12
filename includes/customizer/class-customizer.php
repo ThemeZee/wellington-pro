@@ -61,6 +61,7 @@ class Wellington_Pro_Customizer {
 		$default_options = array(
 			'header_logo'          => '',
 			'header_spacing'       => 30,
+			'author_bio'           => false,
 			'scroll_to_top'        => false,
 			'logo_spacing'         => 0,
 			'footer_text'          => '',
