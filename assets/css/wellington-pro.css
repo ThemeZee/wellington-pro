@@ -160,15 +160,14 @@
 /*--------------------------------------------------------------
 # Header Search
 --------------------------------------------------------------*/
-.header-search {
-	float: right;
-}
-
 .header-search .header-search-icon {
+	position: absolute;
+	right: 0;
 	display: inline-block;
 	padding: 1em;
 	color: #fff;
 	background: rgba(255,255,255,0.075);
+	z-index: 99;
 }
 
 .header-search .header-search-icon:hover,
@@ -199,6 +198,7 @@
 
 .header-search .header-search-form {
 	position: absolute;
+	top: 3.75em;
 	right: 0;
 	display: none;
 	margin: 0;
