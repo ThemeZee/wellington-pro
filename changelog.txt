@@ -2,6 +2,12 @@
 Wellington Pro Changelog
 ===================================
 
+Version 1.2
+-----------------------------------
+* added Header Search feature
+* added Author Bio feature
+* updated color settings for new features
+
 Version 1.1.1
 -----------------------------------
 * added default widget titles for Magazine widgets

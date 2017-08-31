@@ -158,6 +158,62 @@
 }
 
 /*--------------------------------------------------------------
+# Header Search
+--------------------------------------------------------------*/
+.header-search .header-search-icon {
+	position: absolute;
+	left: 0;
+	display: inline-block;
+	padding: 1em;
+	color: #fff;
+	background: rgba(255,255,255,0.075);
+	z-index: 99;
+}
+
+.header-search .header-search-icon:hover,
+.header-search .header-search-icon:active {
+	cursor: pointer;
+	color: rgba(255,255,255,0.5);
+}
+
+.header-search .header-search-icon:focus {
+	outline: none;
+}
+
+.header-search .header-search-icon .genericon-search {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	content: '\f400';
+	vertical-align: middle;
+	text-decoration: inherit;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 26px;
+	font-family: 'Genericons';
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.header-search .header-search-form {
+	position: absolute;
+	top: 3.75em;
+	left: 0;
+	display: none;
+	margin: 0;
+	padding: 1em;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-top: none;
+	z-index: 999;
+}
+
+.header-search .header-search-form .search-form {
+	min-width: 300px;
+}
+
+/*--------------------------------------------------------------
 # Magazine Post Widgets
 --------------------------------------------------------------*/
 
@@ -224,6 +280,46 @@
 .widget-magazine-posts-sidebar .type-post .entry-content {
 	font-size: 16px;
 	font-size: 1rem;
+}
+
+/*--------------------------------------------------------------
+# Author Bio
+--------------------------------------------------------------*/
+.entry-author {
+	margin: 0 0 1.5em;
+	padding: 1.5em 0 0;
+	border-top: 1px solid #ddd;
+}
+
+.entry-author .author-avatar {
+	float: right;
+	margin: 0 0 0.15em 1.5em;
+	max-width: 25%;
+}
+
+.entry-author .author-avatar img {
+	vertical-align: top;
+}
+
+.entry-author .author-heading .author-title {
+	display: inline-block;
+	margin: 0 0 0.25em 1em;
+	padding: 0;
+	font-size: 18px;
+	font-size: 1.125rem;
+}
+
+.entry-author .author-heading .author-link {
+	display: inline-block;
+	margin: 0 0 0.5em;
+	font-size: 16px;
+	font-size: 1rem;
+}
+
+.entry-author .author-bio {
+	margin: 0;
+	font-size: 17px;
+	font-size: 1.0625rem;
 }
 
 /*--------------------------------------------------------------
@@ -331,6 +427,47 @@
 }
 
 /*--------------------------------------------------------------
+# Scroll to Top Button
+--------------------------------------------------------------*/
+.scroll-to-top-button {
+	z-index: 9999;
+	width: 40px;
+	height: 40px;
+	display: inline;
+	position: fixed;
+	cursor: pointer;
+	margin: 0 auto;
+	padding: 0;
+	left: 0.75em;
+	bottom: 0.75em;
+	background: #ee3333;
+	transition: none;
+}
+
+.scroll-to-top-button:focus,
+.scroll-to-top-button:active {
+	background: #ee3333;
+}
+
+.scroll-to-top-button:hover {
+	background: #303030;
+}
+
+.scroll-to-top-button:after {
+	display: inline-block;
+	margin: 0 2px 0 0;
+	color: #fff;
+	content: '\f432';
+	vertical-align: top;
+	text-decoration: inherit;
+	font-size: 28px;
+	font-family: 'Genericons';
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*--------------------------------------------------------------
 # Media Queries
 --------------------------------------------------------------*/
 
@@ -426,6 +563,19 @@
 ## Desktop Small ( < 960px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 60em) {
+	/* Header Search */
+	.header-search .header-search-icon {
+		background: none;
+	}
+
+	.header-search .header-search-form {
+		width: 100%;
+	}
+
+	.header-search .header-search-form .search-form {
+		min-width: auto;
+	}
+
 	/* Magazine Posts */
 	.widget-magazine-posts .magazine-horizontal-box .large-post .entry-content,
 	.widget-magazine-posts .magazine-horizontal-box .large-post .more-link {
@@ -668,6 +818,9 @@
 		display: none;
 	}
 
+	.scroll-to-top-button {
+		display: none !important;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -750,6 +903,22 @@
 ## Mobile Medium ( < 480px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 30em) {
+	/* Author Bio */
+	.entry-author .author-avatar {
+		float: none;
+		margin: 0 0 1em;
+		max-width: 100%;
+	}
+
+	.entry-author .author-heading .author-title {
+		display: block;
+		margin: 0 0 0.25em;
+	}
+
+	.entry-author .author-heading .author-link {
+		display: block;
+	}
+
 	/* Magazine Posts */
 	.widget-magazine-posts-list .type-post .entry-title,
 	.widget-magazine-posts-sidebar .type-post .entry-title {
