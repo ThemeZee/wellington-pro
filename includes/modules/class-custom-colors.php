@@ -111,7 +111,7 @@ class Wellington_Pro_Custom_Colors {
 					background: #303030;
 				}
 			';
-		}
+		} // End if().
 
 		// Set Top Navigation Color.
 		if ( $theme_options['top_navi_color'] !== $default_options['top_navi_color'] ) {
@@ -161,8 +161,8 @@ class Wellington_Pro_Custom_Colors {
 						background: rgba(255,255,255,0.075);
 					}
 				';
-			}
-		}
+			} // End if().
+		} // End if().
 
 		// Set Main Navigation Color.
 		if ( $theme_options['navi_color'] !== $default_options['navi_color'] ) {
@@ -190,7 +190,8 @@ class Wellington_Pro_Custom_Colors {
 					.main-navigation-menu a:visited,
 					.main-navigation-toggle,
 					.main-navigation-toggle:focus,
-					.main-navigation-menu .submenu-dropdown-toggle {
+					.main-navigation-menu .submenu-dropdown-toggle,
+					.header-search .header-search-icon {
 					    color: #111111;
 					}
 
@@ -199,16 +200,19 @@ class Wellington_Pro_Custom_Colors {
 					.main-navigation-toggle:hover,
 					.main-navigation-toggle:active,
 					.main-navigation-menu .submenu-dropdown-toggle:hover,
-					.main-navigation-menu .submenu-dropdown-toggle:active {
+					.main-navigation-menu .submenu-dropdown-toggle:active,
+					.header-search .header-search-icon:hover,
+					.header-search .header-search-icon:active {
 						color: rgba(0,0,0,0.5);
 					}
 
-					.main-navigation-menu li.current-menu-item > a {
+					.main-navigation-menu li.current-menu-item > a,
+					.header-search .header-search-icon {
 						background: rgba(0,0,0,0.05);
 					}
 				';
-			}
-		}
+			} // End if().
+		} // End if().
 
 		// Set Title Color.
 		if ( $theme_options['title_color'] != $default_options['title_color'] ) {
@@ -260,7 +264,7 @@ class Wellington_Pro_Custom_Colors {
 					background: ' . $theme_options['title_color'] . ';
 				}
 			';
-		}
+		} // End if().
 
 		// Set Widget Title Color.
 		if ( $theme_options['widget_title_color'] !== $default_options['widget_title_color'] ) {

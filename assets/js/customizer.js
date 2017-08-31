@@ -141,13 +141,13 @@
 				bordercolor = 'rgba(255,255,255,0.1)';
 			}
 
-			$( '.main-navigation-menu a, .main-navigation-toggle, .main-navigation-menu .submenu-dropdown-toggle' )
+			$( '.main-navigation-menu a, .main-navigation-toggle, .main-navigation-menu .submenu-dropdown-toggle, .header-search .header-search-icon' )
 				.css( 'color', textcolor );
-			$( '.main-navigation-menu a, .main-navigation-toggle, .main-navigation-menu .submenu-dropdown-toggle' )
+			$( '.main-navigation-menu a, .main-navigation-toggle, .main-navigation-menu .submenu-dropdown-toggle, .header-search .header-search-icon' )
 				.hover( function() { $( this ).css( 'color', hovercolor ); },
 						function() { $( this ).css( 'color', textcolor ); }
 				);
-			$( '.main-navigation-menu li.current-menu-item > a' )
+			$( '.main-navigation-menu li.current-menu-item > a, .header-search .header-search-icon' )
 				.css( 'background-color', bgcolor );
 			$( '.main-navigation-menu, .main-navigation-menu a, .main-navigation-menu ul, .main-navigation-menu ul a, .main-navigation-menu ul li:last-child a' )
 				.css( 'border-color', bordercolor );
