@@ -38,7 +38,21 @@ class Wellington_Pro_Custom_Fonts {
 
 		// Add Font Settings in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'font_settings' ) );
+	}
 
+	/**
+	 * Get the font family string.
+	 *
+	 * @param String $font Name of selected font.
+	 * @return string Fonts string.
+	 */
+	static function get_font_family( $font ) {
+
+		// Set System Font Stack.
+		$system_fonts = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
+
+		// Return Font Family string.
+		return $font === 'SystemFontStack' ? $system_fonts : '"' . esc_attr( $font ) . '", Arial, Helvetica, sans-serif';
 	}
 
 	/**
@@ -65,7 +79,7 @@ class Wellington_Pro_Custom_Fonts {
 				input,
 				select,
 				textarea {
-					font-family: "' . esc_attr( $theme_options['text_font'] ) . '";
+					font-family: ' . self::get_font_family( $theme_options['text_font'] ) . ';
 				}
 				';
 
@@ -79,7 +93,7 @@ class Wellington_Pro_Custom_Fonts {
 				.site-title,
 				.page-title,
 				.entry-title {
-					font-family: "' . esc_attr( $theme_options['title_font'] ) . '";
+					font-family: ' . self::get_font_family( $theme_options['title_font'] ) . ';
 				}
 				';
 
@@ -92,7 +106,7 @@ class Wellington_Pro_Custom_Fonts {
 				/* Navigation Font Setting */
 				.top-navigation-menu a,
 				.main-navigation-menu a {
-					font-family: "' . esc_attr( $theme_options['navi_font'] ) . '";
+					font-family: ' . self::get_font_family( $theme_options['navi_font'] ) . ';
 				}
 				';
 
@@ -107,7 +121,7 @@ class Wellington_Pro_Custom_Fonts {
 				.archive-title,
 				.comments-header .comments-title,
 				.comment-reply-title span {
-					font-family: "' . esc_attr( $theme_options['widget_title_font'] ) . '";
+					font-family: ' . self::get_font_family( $theme_options['widget_title_font'] ) . ';
 				}
 				';
 
