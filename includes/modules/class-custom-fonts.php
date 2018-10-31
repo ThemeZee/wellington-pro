@@ -30,11 +30,15 @@ class Wellington_Pro_Custom_Fonts {
 		// Include Font List Control Files.
 		require_once WELLINGTON_PRO_PLUGIN_DIR . 'includes/customizer/class-customize-font-control.php';
 
-		// Add Custom Color CSS code to custom stylesheet output.
+		// Add Custom Fonts CSS code to custom stylesheet output.
 		add_filter( 'wellington_pro_custom_css_stylesheet', array( __CLASS__, 'custom_fonts_css' ) );
+
+		// Add Custom Fonts CSS code to the Gutenberg editor.
+		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'custom_editor_fonts_css' ) );
 
 		// Load custom fonts from Google web font API.
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'load_google_fonts' ), 1 );
+		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'load_google_fonts' ), 1 );
 
 		// Add Font Settings in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'font_settings' ) );
@@ -128,6 +132,42 @@ class Wellington_Pro_Custom_Fonts {
 		}
 
 		return $custom_css;
+	}
+
+	/**
+	 * Adds Font Family CSS styles in the Gutenberg Editor to override default typography
+	 *
+	 * @return void
+	 */
+	static function custom_editor_fonts_css() {
+
+		// Get Theme Options from Database.
+		$theme_options = Wellington_Pro_Customizer::get_theme_options();
+
+		// Get Default Fonts from settings.
+		$default_options = Wellington_Pro_Customizer::get_default_options();
+
+		// Set Default Text Font.
+		if ( $theme_options['text_font'] !== $default_options['text_font'] ) {
+
+			$custom_css .= '
+				.edit-post-visual-editor .editor-block-list__block {
+					font-family: ' . self::get_font_family( $theme_options['text_font'] ) . ';
+				}
+			';
+		}
+
+		// Set Title Font.
+		if ( $theme_options['title_font'] !== $default_options['title_font'] ) {
+
+			$custom_css .= '
+				.edit-post-visual-editor .editor-post-title__block .editor-post-title__input {
+					font-family: ' . self::get_font_family( $theme_options['title_font'] ) . ';
+				}
+			';
+		}
+
+		wp_add_inline_style( 'wellington-editor-styles', $custom_css );
 	}
 
 	/**
