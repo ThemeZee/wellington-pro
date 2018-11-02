@@ -140,6 +140,7 @@ class Wellington_Pro_Custom_Fonts {
 	 * @return void
 	 */
 	static function custom_editor_fonts_css() {
+		$custom_css = '';
 
 		// Get Theme Options from Database.
 		$theme_options = Wellington_Pro_Customizer::get_theme_options();
@@ -167,7 +168,10 @@ class Wellington_Pro_Custom_Fonts {
 			';
 		}
 
-		wp_add_inline_style( 'wellington-editor-styles', $custom_css );
+		// Add Custom CSS.
+		if ( '' !== $custom_css ) {
+			wp_add_inline_style( 'wellington-editor-styles', $custom_css );
+		}
 	}
 
 	/**

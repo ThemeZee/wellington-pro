@@ -8,7 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Custom Colors Class
@@ -30,9 +32,11 @@ class Wellington_Pro_Custom_Colors {
 		// Add Custom Color CSS code to custom stylesheet output.
 		add_filter( 'wellington_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) );
 
+		// Add Custom Color CSS code to the Gutenberg editor.
+		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'custom_editor_colors_css' ) );
+
 		// Add Custom Color Settings.
 		add_action( 'customize_register', array( __CLASS__, 'color_settings' ) );
-
 	}
 
 	/**
@@ -55,7 +59,8 @@ class Wellington_Pro_Custom_Colors {
 			$custom_css .= '
 				/* Link and Button Color Setting */
 				a:link,
-				a:visited {
+				a:visited,
+				.has-primary-color {
 					color: ' . $theme_options['link_color'] . ';
 				}
 
@@ -109,6 +114,10 @@ class Wellington_Pro_Custom_Colors {
 				.tzwb-social-icons .social-icons-menu li a:hover,
 				.scroll-to-top-button:hover {
 					background: #303030;
+				}
+
+				.has-primary-background-color {
+					background-color: ' . $theme_options['link_color'] . ';
 				}
 			';
 		} // End if().
@@ -371,6 +380,55 @@ class Wellington_Pro_Custom_Colors {
 	}
 
 	/**
+	 * Adds Color CSS styles in the Gutenberg Editor to override default colors
+	 *
+	 * @return void
+	 */
+	static function custom_editor_colors_css() {
+
+		// Get Theme Options from Database.
+		$theme_options = Wellington_Pro_Customizer::get_theme_options();
+
+		// Get Default Fonts from settings.
+		$default_options = Wellington_Pro_Customizer::get_default_options();
+
+		// Set Primary Color.
+		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
+
+			$custom_css = '
+				.has-primary-color {
+					color: ' . $theme_options['link_color'] . ';
+				}
+				.has-primary-background-color {
+					background-color: ' . $theme_options['link_color'] . ';
+				}
+			';
+
+			wp_add_inline_style( 'wellington-editor-styles', $custom_css );
+		}
+	}
+
+	/**
+	 * Change primary color in Gutenberg Editor.
+	 *
+	 * @return array $editor_settings
+	 */
+	static function change_primary_color( $color ) {
+		// Get Theme Options from Database.
+		$theme_options = Wellington_Pro_Customizer::get_theme_options();
+
+		// Get Default Fonts from settings.
+		$default_options = Wellington_Pro_Customizer::get_default_options();
+
+		// Set Primary Color.
+		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
+			$color = $theme_options['link_color'];
+		}
+
+		return $color;
+	}
+
+	/**
 	 * Adds all color settings in the Customizer
 	 *
 	 * @param object $wp_customize / Customizer Object.
@@ -381,9 +439,8 @@ class Wellington_Pro_Custom_Colors {
 		$wp_customize->add_section( 'wellington_pro_section_colors', array(
 			'title'    => __( 'Theme Colors', 'wellington-pro' ),
 			'priority' => 60,
-			'panel' => 'wellington_options_panel',
-			)
-		);
+			'panel'    => 'wellington_options_panel',
+		) );
 
 		// Get Default Colors from settings.
 		$default_options = Wellington_Pro_Customizer::get_default_options();
@@ -391,16 +448,15 @@ class Wellington_Pro_Custom_Colors {
 		// Add Top Navigation Color setting.
 		$wp_customize->add_setting( 'wellington_theme_options[top_navi_color]', array(
 			'default'           => $default_options['top_navi_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'wellington_theme_options[top_navi_color]', array(
-				'label'      => _x( 'Top Navigation', 'color setting', 'wellington-pro' ),
-				'section'    => 'wellington_pro_section_colors',
-				'settings'   => 'wellington_theme_options[top_navi_color]',
+				'label'    => _x( 'Top Navigation', 'color setting', 'wellington-pro' ),
+				'section'  => 'wellington_pro_section_colors',
+				'settings' => 'wellington_theme_options[top_navi_color]',
 				'priority' => 10,
 			)
 		) );
@@ -408,16 +464,15 @@ class Wellington_Pro_Custom_Colors {
 		// Add Navigation Primary Color setting.
 		$wp_customize->add_setting( 'wellington_theme_options[navi_color]', array(
 			'default'           => $default_options['navi_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'wellington_theme_options[navi_color]', array(
-				'label'      => _x( 'Main Navigation', 'color setting', 'wellington-pro' ),
-				'section'    => 'wellington_pro_section_colors',
-				'settings'   => 'wellington_theme_options[navi_color]',
+				'label'    => _x( 'Main Navigation', 'color setting', 'wellington-pro' ),
+				'section'  => 'wellington_pro_section_colors',
+				'settings' => 'wellington_theme_options[navi_color]',
 				'priority' => 20,
 			)
 		) );
@@ -425,16 +480,15 @@ class Wellington_Pro_Custom_Colors {
 		// Add Link and Button Color setting.
 		$wp_customize->add_setting( 'wellington_theme_options[link_color]', array(
 			'default'           => $default_options['link_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'wellington_theme_options[link_color]', array(
-				'label'      => _x( 'Links and Buttons', 'color setting', 'wellington-pro' ),
-				'section'    => 'wellington_pro_section_colors',
-				'settings'   => 'wellington_theme_options[link_color]',
+				'label'    => _x( 'Links and Buttons', 'color setting', 'wellington-pro' ),
+				'section'  => 'wellington_pro_section_colors',
+				'settings' => 'wellington_theme_options[link_color]',
 				'priority' => 30,
 			)
 		) );
@@ -442,16 +496,15 @@ class Wellington_Pro_Custom_Colors {
 		// Add Navigation Secondary Color setting.
 		$wp_customize->add_setting( 'wellington_theme_options[title_color]', array(
 			'default'           => $default_options['title_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'wellington_theme_options[title_color]', array(
-				'label'      => _x( 'Post Titles', 'color setting', 'wellington-pro' ),
-				'section'    => 'wellington_pro_section_colors',
-				'settings'   => 'wellington_theme_options[title_color]',
+				'label'    => _x( 'Post Titles', 'color setting', 'wellington-pro' ),
+				'section'  => 'wellington_pro_section_colors',
+				'settings' => 'wellington_theme_options[title_color]',
 				'priority' => 40,
 			)
 		) );
@@ -459,16 +512,15 @@ class Wellington_Pro_Custom_Colors {
 		// Add Widget Title Color setting.
 		$wp_customize->add_setting( 'wellington_theme_options[widget_title_color]', array(
 			'default'           => $default_options['widget_title_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'wellington_theme_options[widget_title_color]', array(
-				'label'      => _x( 'Widget Titles', 'color setting', 'wellington-pro' ),
-				'section'    => 'wellington_pro_section_colors',
-				'settings'   => 'wellington_theme_options[widget_title_color]',
+				'label'    => _x( 'Widget Titles', 'color setting', 'wellington-pro' ),
+				'section'  => 'wellington_pro_section_colors',
+				'settings' => 'wellington_theme_options[widget_title_color]',
 				'priority' => 50,
 			)
 		) );
@@ -476,16 +528,15 @@ class Wellington_Pro_Custom_Colors {
 		// Add Footer Widget Color setting.
 		$wp_customize->add_setting( 'wellington_theme_options[footer_widgets_color]', array(
 			'default'           => $default_options['footer_widgets_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'wellington_theme_options[footer_widgets_color]', array(
-				'label'      => _x( 'Footer Widgets', 'color setting', 'wellington-pro' ),
-				'section'    => 'wellington_pro_section_colors',
-				'settings'   => 'wellington_theme_options[footer_widgets_color]',
+				'label'    => _x( 'Footer Widgets', 'color setting', 'wellington-pro' ),
+				'section'  => 'wellington_pro_section_colors',
+				'settings' => 'wellington_theme_options[footer_widgets_color]',
 				'priority' => 60,
 			)
 		) );
@@ -493,16 +544,15 @@ class Wellington_Pro_Custom_Colors {
 		// Add Footer Color setting.
 		$wp_customize->add_setting( 'wellington_theme_options[footer_color]', array(
 			'default'           => $default_options['footer_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'wellington_theme_options[footer_color]', array(
-				'label'      => _x( 'Footer', 'color setting', 'wellington-pro' ),
-				'section'    => 'wellington_pro_section_colors',
-				'settings'   => 'wellington_theme_options[footer_color]',
+				'label'    => _x( 'Footer', 'color setting', 'wellington-pro' ),
+				'section'  => 'wellington_pro_section_colors',
+				'settings' => 'wellington_theme_options[footer_color]',
 				'priority' => 70,
 			)
 		) );
@@ -547,3 +597,4 @@ class Wellington_Pro_Custom_Colors {
 
 // Run Class.
 add_action( 'init', array( 'Wellington_Pro_Custom_Colors', 'setup' ) );
+add_filter( 'wellington_primary_color', array( 'Wellington_Pro_Custom_Colors', 'change_primary_color' ) );
