@@ -8,8 +8,8 @@ Author URI: https://themezee.com/
 Version: 1.4
 Text Domain: wellington-pro
 Domain Path: /languages/
-License: GPL v3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Wellington Pro
 Copyright(C) 2017, ThemeZee.com - support@themezee.com
@@ -17,7 +17,9 @@ Copyright(C) 2017, ThemeZee.com - support@themezee.com
 */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 
 /**
@@ -48,7 +50,6 @@ class Wellington_Pro {
 
 		// Setup Action Hooks.
 		self::setup_actions();
-
 	}
 
 	/**
@@ -78,7 +79,6 @@ class Wellington_Pro {
 
 		// Plugin Root File.
 		define( 'WELLINGTON_PRO_PLUGIN_FILE', __FILE__ );
-
 	}
 
 	/**
@@ -125,7 +125,6 @@ class Wellington_Pro {
 		require_once WELLINGTON_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-posts-list.php';
 		require_once WELLINGTON_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-posts-sidebar.php';
 		require_once WELLINGTON_PRO_PLUGIN_DIR . 'includes/widgets/widget-magazine-posts-single.php';
-
 	}
 
 	/**
@@ -147,7 +146,6 @@ class Wellington_Pro {
 
 		// Add automatic plugin updater from ThemeZee Store API.
 		add_action( 'admin_init', array( __CLASS__, 'plugin_updater' ), 0 );
-
 	}
 
 	/**
@@ -180,7 +178,6 @@ class Wellington_Pro {
 
 		// Enqueue Custom CSS.
 		wp_add_inline_style( 'wellington-pro', $custom_css );
-
 	}
 
 	/**
@@ -200,7 +197,6 @@ class Wellington_Pro {
 		register_widget( 'Wellington_Pro_Magazine_Posts_List_Widget' );
 		register_widget( 'Wellington_Pro_Magazine_Posts_Sidebar_Widget' );
 		register_widget( 'Wellington_Pro_Magazine_Posts_Single_Widget' );
-
 	}
 
 	/**
@@ -231,16 +227,14 @@ class Wellington_Pro {
 
 			// Setup the updater.
 			$wellington_pro_updater = new Wellington_Pro_Plugin_Updater( WELLINGTON_PRO_STORE_API_URL, __FILE__, array(
-					'version' 	=> WELLINGTON_PRO_VERSION,
-					'license' 	=> $license_key,
-					'item_name' => WELLINGTON_PRO_NAME,
-					'item_id'   => WELLINGTON_PRO_PRODUCT_ID,
-					'author' 	=> 'ThemeZee',
-				)
-			);
+				'version'   => WELLINGTON_PRO_VERSION,
+				'license'   => $license_key,
+				'item_name' => WELLINGTON_PRO_NAME,
+				'item_id'   => WELLINGTON_PRO_PRODUCT_ID,
+				'author'    => 'ThemeZee',
+			) );
 
 		endif;
-
 	}
 }
 
