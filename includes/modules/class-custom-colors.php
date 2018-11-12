@@ -396,7 +396,8 @@ class Wellington_Pro_Custom_Colors {
 		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
 
 			$custom_css = '
-				.has-primary-color {
+				.has-primary-color,
+				.edit-post-visual-editor .editor-block-list__block a {
 					color: ' . $theme_options['link_color'] . ';
 				}
 				.has-primary-background-color {
