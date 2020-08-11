@@ -1,0 +1,61 @@
+.footer-widgets-background {
+	padding: 2.5em 3em 0;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+	background: #303030;
+}
+
+.footer-widgets {
+	margin-right: -2.5em;
+}
+
+.footer-widgets .widget {
+	margin: 0 0 2.5em;
+}
+
+/* Default: Four Column Footer Widgets */
+.footer-widget-column {
+	float: left;
+	box-sizing: border-box;
+	padding-right: 2.5em;
+	width: 25%;
+}
+
+/* One Column Footer Widgets
+* Using Sibling Count: http://andr3.net/blog/post/142
+*/
+.footer-widget-column:nth-child(1):nth-last-child(1) {
+	float: none;
+	width: 100%;
+}
+
+/* Two Column Footer Widgets */
+.footer-widget-column:nth-child(1):nth-last-child(2),
+.footer-widget-column:nth-child(2):nth-last-child(1) {
+	width: 50%;
+}
+
+/* Three Column Footer Widgets */
+.footer-widget-column:nth-child(1):nth-last-child(3),
+.footer-widget-column:nth-child(2):nth-last-child(2),
+.footer-widget-column:nth-child(3):nth-last-child(1) {
+	width: 33.3333%;
+}
+
+/* Footer Widget Styling */
+.footer-widgets .widget {
+	color: #fff;
+}
+
+.footer-widgets .widget-title {
+	color: #fff;
+}
+
+.footer-widgets .widget a:link,
+.footer-widgets .widget a:visited  {
+	color: #fff;
+}
+
+.footer-widgets .widget a:hover,
+.footer-widgets .widget a:active  {
+	color: rgba(255,255,255,0.5);
+}

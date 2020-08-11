@@ -1,0 +1,35 @@
+.footer-navigation {
+	float: right;
+}
+
+.footer-navigation-menu {
+	position: relative;
+	display: block;
+	margin: 0;
+	padding: 2.25em 3em;
+	list-style-position: outside;
+	list-style-type: none;
+}
+
+.footer-navigation-menu li {
+	position: relative;
+	float: left;
+}
+
+.footer-navigation-menu a {
+	display: block;
+	margin: 0;
+	padding: 0.75em 1em;
+	text-decoration: none;
+}
+
+.footer-navigation-menu a:link,
+.footer-navigation-menu a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+.footer-navigation-menu a:hover,
+.footer-navigation-menu a:active {
+	color: rgba(255,255,255,0.5);
+}
