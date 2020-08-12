@@ -72,8 +72,8 @@ class Wellington_Pro_Header_Bar {
 
 				<button class="secondary-menu-toggle menu-toggle" aria-controls="secondary-menu" aria-expanded="false">
 					<?php
-					echo wellington_get_svg( 'menu' );
-					echo wellington_get_svg( 'close' );
+					echo self::get_svg( 'menu' );
+					echo self::get_svg( 'close' );
 					?>
 					<span class="menu-toggle-text screen-reader-text"><?php esc_html_e( 'Navigation', 'wellington-pro' ); ?></span>
 				</button>
@@ -100,6 +100,17 @@ class Wellington_Pro_Header_Bar {
 			endif;
 
 			echo '</div>';
+		}
+	}
+
+	/**
+	 * Get SVG icon.
+	 *
+	 * @return void
+	 */
+	static function get_svg( $icon ) {
+		if ( function_exists( 'wellington_get_svg' ) ) {
+			return wellington_get_svg( $icon );
 		}
 	}
 
