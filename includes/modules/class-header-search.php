@@ -84,7 +84,7 @@ class Wellington_Pro_Header_Search {
 
 			</div>
 
-		<?php
+			<?php
 		endif;
 	}
 
@@ -114,7 +114,7 @@ class Wellington_Pro_Header_Search {
 		) );
 
 		$wp_customize->add_control( 'wellington_theme_options[header_search]', array(
-			'label'    => esc_html__( 'Enable search field in header', 'wellington-pro' ),
+			'label'    => esc_html__( 'Enable search field in main navigation', 'wellington-pro' ),
 			'section'  => 'wellington_pro_section_header',
 			'settings' => 'wellington_theme_options[header_search]',
 			'type'     => 'checkbox',

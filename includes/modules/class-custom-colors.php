@@ -128,7 +128,7 @@ class Wellington_Pro_Custom_Colors {
 			$custom_css .= '
 				/* Top Navigation Color Setting */
 				.header-bar-wrap,
-				.top-navigation-menu ul {
+				.top-navigation ul ul {
 					background: ' . $theme_options['top_navi_color'] . ';
 				}
 			';
@@ -137,37 +137,49 @@ class Wellington_Pro_Custom_Colors {
 			if ( self::is_color_dark( $theme_options['top_navi_color'] ) ) {
 				$custom_css .= '
 					.header-bar-wrap,
-					.top-navigation-menu,
-					.top-navigation-menu a,
-					.top-navigation-menu ul,
-					.top-navigation-menu ul a,
-					.top-navigation-menu ul li:last-child a {
+					.top-navigation ul,
+					.top-navigation ul a,
+					.top-navigation ul ul,
+					.top-navigation ul ul a,
+					.top-navigation ul ul li:last-child a {
 						border-color: rgba(255,255,255,0.1);
 					}
 
-					.top-navigation-menu a:link,
-					.top-navigation-menu a:visited,
-					.top-navigation-toggle,
-					.top-navigation-toggle:focus,
-					.top-navigation-menu .submenu-dropdown-toggle,
+					.top-navigation ul a:link,
+					.top-navigation ul a:visited,
+					.secondary-menu-toggle,
+					.secondary-menu-toggle:focus,
 					.header-bar .social-icons-menu li a:link,
 					.header-bar .social-icons-menu li a:visited {
 					    color: #ffffff;
 					}
 
-					.top-navigation-menu a:hover,
-					.top-navigation-menu a:active,
-					.top-navigation-toggle:hover,
-					.top-navigation-toggle:active,
-					.top-navigation-menu .submenu-dropdown-toggle:hover,
-					.top-navigation-menu .submenu-dropdown-toggle:active,
+					.top-navigation ul a:hover,
+					.top-navigation ul a:active,
+					.secondary-menu-toggle:hover,
+					.secondary-menu-toggle:active,
 					.header-bar .social-icons-menu li a:hover,
 					.header-bar .social-icons-menu li a:active {
 						color: rgba(255,255,255,0.5);
 					}
 
-					.top-navigation-menu li.current-menu-item > a {
+					.top-navigation ul li.current-menu-item > a {
 						background: rgba(255,255,255,0.075);
+					}
+
+					.secondary-menu-toggle .icon,
+					.top-navigation .dropdown-toggle .icon,
+					.top-navigation ul .menu-item-has-children > a > .icon {
+					    fill: #ffffff;
+					}
+
+					.secondary-menu-toggle:hover .icon,
+					.secondary-menu-toggle:active .icon,
+					.top-navigation .dropdown-toggle:hover .icon,
+					.top-navigation .dropdown-toggle:active .icon,
+					.top-navigation ul .menu-item-has-children > a:hover > .icon,
+					.top-navigation ul .menu-item-has-children > a:active > .icon {
+						fill: rgba(255,255,255,0.5);
 					}
 				';
 			} // End if().
@@ -179,7 +191,7 @@ class Wellington_Pro_Custom_Colors {
 			$custom_css .= '
 				/* Main Navigation Color Setting */
 				.primary-navigation-wrap,
-				.main-navigation-menu ul {
+				.main-navigation ul ul {
 					background: ' . $theme_options['navi_color'] . ';
 				}
 			';
@@ -187,37 +199,49 @@ class Wellington_Pro_Custom_Colors {
 			// Check if a light background color was chosen.
 			if ( self::is_color_light( $theme_options['navi_color'] ) ) {
 				$custom_css .= '
-					.main-navigation-menu,
-					.main-navigation-menu a,
-					.main-navigation-menu ul,
-					.main-navigation-menu ul a,
-					.main-navigation-menu ul li:last-child a {
+					.main-navigation ul,
+					.main-navigation ul a,
+					.main-navigation ul ul,
+					.main-navigation ul ul a,
+					.main-navigation ul ul li:last-child a {
 						border-color: rgba(0,0,0,0.15);
 					}
 
-					.main-navigation-menu a:link,
-					.main-navigation-menu a:visited,
-					.main-navigation-toggle,
-					.main-navigation-toggle:focus,
-					.main-navigation-menu .submenu-dropdown-toggle,
+					.main-navigation ul a:link,
+					.main-navigation ul a:visited,
+					.primary-menu-toggle,
+					.primary-menu-toggle:focus,
 					.header-search .header-search-icon {
 					    color: #111111;
 					}
 
-					.main-navigation-menu a:hover,
-					.main-navigation-menu a:active,
-					.main-navigation-toggle:hover,
-					.main-navigation-toggle:active,
-					.main-navigation-menu .submenu-dropdown-toggle:hover,
-					.main-navigation-menu .submenu-dropdown-toggle:active,
+					.main-navigation ul a:hover,
+					.main-navigation ul a:active,
+					.primary-menu-toggle:hover,
+					.primary-menu-toggle:active,
 					.header-search .header-search-icon:hover,
 					.header-search .header-search-icon:active {
 						color: rgba(0,0,0,0.5);
 					}
 
-					.main-navigation-menu li.current-menu-item > a,
+					.main-navigation ul li.current-menu-item > a,
 					.header-search .header-search-icon {
 						background: rgba(0,0,0,0.05);
+					}
+
+					.primary-menu-toggle .icon,
+					.main-navigation .dropdown-toggle .icon,
+					.main-navigation ul .menu-item-has-children > a > .icon {
+					    fill: #111111;
+					}
+
+					.primary-menu-toggle:hover .icon,
+					.primary-menu-toggle:active .icon,
+					.main-navigation .dropdown-toggle:hover .icon,
+					.main-navigation .dropdown-toggle:active .icon,
+					.main-navigation ul .menu-item-has-children > a:hover > .icon,
+					.main-navigation ul .menu-item-has-children > a:active > .icon {
+						fill: rgba(0,0,0,0.5);
 					}
 				';
 			} // End if().

@@ -94,7 +94,7 @@
 	/* Top Navigation Color Option */
 	wp.customize( 'wellington_theme_options[top_navi_color]', function( value ) {
 		value.bind( function( newval ) {
-			$( '.header-bar-wrap, .top-navigation-menu ul' )
+			$( '.header-bar-wrap, .top-navigation ul ul' )
 				.css( 'background', newval );
 
 			var textcolor, hovercolor, bgcolor, bordercolor;
@@ -111,15 +111,21 @@
 				bordercolor = 'rgba(0,0,0,0.15)';
 			}
 
-			$( '.top-navigation-menu a, .top-navigation-toggle, .top-navigation-menu .submenu-dropdown-toggle, .header-bar .social-icons-menu li a' )
+			$( '.top-navigation ul a, .secondary-menu-toggle, .header-bar .social-icons-menu li a' )
 				.css( 'color', textcolor );
-			$( '.top-navigation-menu a, .top-navigation-toggle, .top-navigation-menu .submenu-dropdown-toggle, .header-bar .social-icons-menu li a' )
+			$( '.top-navigation ul a, .secondary-menu-toggle, .header-bar .social-icons-menu li a' )
 				.hover( function() { $( this ).css( 'color', hovercolor ); },
 						function() { $( this ).css( 'color', textcolor ); }
 				);
-			$( '.top-navigation-menu li.current-menu-item > a' )
+			$( '.secondary-menu-toggle .icon, .top-navigation .dropdown-toggle .icon, .top-navigation ul .menu-item-has-children > a > .icon' )
+				.css( 'fill', textcolor );
+			$( '.secondary-menu-toggle, .top-navigation .dropdown-toggle, .top-navigation ul .menu-item-has-children > a' )
+				.hover( function() { $( this ).find('.icon').css( 'fill', hovercolor ); },
+						function() { $( this ).find('.icon').css( 'fill', textcolor ); }
+				);
+			$( '.top-navigation ul li.current-menu-item > a' )
 				.css( 'background-color', bgcolor );
-			$( '.header-bar-wrap, .top-navigation-menu, .top-navigation-menu a, .top-navigation-menu ul, .top-navigation-menu ul a, .top-navigation-menu ul li:last-child a' )
+			$( '.header-bar-wrap, .top-navigation ul, .top-navigation ul a, .top-navigation ul ul, .top-navigation ul ul a, .top-navigation ul ul li:last-child a' )
 				.css( 'border-color', bordercolor );
 		} );
 	} );
@@ -127,7 +133,7 @@
 	/* Main Navigation Color Option */
 	wp.customize( 'wellington_theme_options[navi_color]', function( value ) {
 		value.bind( function( newval ) {
-			$( '.primary-navigation-wrap, .main-navigation-menu ul' )
+			$( '.primary-navigation-wrap, .main-navigation ul ul' )
 				.css( 'background', newval );
 
 			var textcolor, hovercolor, bgcolor, bordercolor;
@@ -144,15 +150,21 @@
 				bordercolor = 'rgba(255,255,255,0.1)';
 			}
 
-			$( '.main-navigation-menu a, .main-navigation-toggle, .main-navigation-menu .submenu-dropdown-toggle, .header-search .header-search-icon' )
+			$( '.main-navigation ul a, .primary-menu-toggle, .header-search .header-search-icon' )
 				.css( 'color', textcolor );
-			$( '.main-navigation-menu a, .main-navigation-toggle, .main-navigation-menu .submenu-dropdown-toggle, .header-search .header-search-icon' )
+			$( '.main-navigation ul a, .primary-menu-toggle, .header-search .header-search-icon' )
 				.hover( function() { $( this ).css( 'color', hovercolor ); },
 						function() { $( this ).css( 'color', textcolor ); }
 				);
-			$( '.main-navigation-menu li.current-menu-item > a, .header-search .header-search-icon' )
+			$( '.primary-menu-toggle .icon, .main-navigation .dropdown-toggle .icon, .main-navigation ul .menu-item-has-children > a > .icon' )
+				.css( 'fill', textcolor );
+			$( '.primary-menu-toggle, .main-navigation .dropdown-toggle, .main-navigation ul .menu-item-has-children > a' )
+				.hover( function() { $( this ).find('.icon').css( 'fill', hovercolor ); },
+						function() { $( this ).find('.icon').css( 'fill', textcolor ); }
+				);
+			$( '.main-navigation ul li.current-menu-item > a, .header-search .header-search-icon' )
 				.css( 'background-color', bgcolor );
-			$( '.main-navigation-menu, .main-navigation-menu a, .main-navigation-menu ul, .main-navigation-menu ul a, .main-navigation-menu ul li:last-child a' )
+			$( '.main-navigation ul, .main-navigation ul a, .main-navigation ul ul, .main-navigation ul ul a, .main-navigation ul ul li:last-child a' )
 				.css( 'border-color', bordercolor );
 		} );
 	} );
@@ -329,7 +341,7 @@
 			var newFont = newval === 'SystemFontStack' ? systemFont : newval;
 
 			// Set CSS.
-			$( '.top-navigation-menu a, .main-navigation-menu a' )
+			$( '.top-navigation ul a, .main-navigation ul a' )
 				.css( 'font-family', newFont );
 
 		} );
