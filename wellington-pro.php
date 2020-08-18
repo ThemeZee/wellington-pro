@@ -12,7 +12,7 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Wellington Pro
-Copyright(C) 2017, ThemeZee.com - support@themezee.com
+Copyright(C) 2020, ThemeZee.com - support@themezee.com
 
 */
 
