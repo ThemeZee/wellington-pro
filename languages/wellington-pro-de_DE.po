@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wellington Pro\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2018-04-13 10:04+0200\n"
-"PO-Revision-Date: 2018-04-13 10:04+0200\n"
+"POT-Creation-Date: 2020-08-18 14:24+0200\n"
+"PO-Revision-Date: 2020-08-18 14:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
 "Language: de_DE\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: includes/admin/class-admin-notices.php:52
@@ -192,64 +192,64 @@ msgstr "Alle Beiträge ansehen"
 msgid "Display Author Bio"
 msgstr "Autor Bio anzeigen"
 
-#: includes/modules/class-custom-colors.php:382
+#: includes/modules/class-custom-colors.php:465
 msgid "Theme Colors"
 msgstr "Theme Farben"
 
-#: includes/modules/class-custom-colors.php:401
+#: includes/modules/class-custom-colors.php:482
 msgctxt "color setting"
 msgid "Top Navigation"
 msgstr "Obere Navigation"
 
-#: includes/modules/class-custom-colors.php:418
+#: includes/modules/class-custom-colors.php:498
 msgctxt "color setting"
 msgid "Main Navigation"
 msgstr "Hauptnavigation"
 
-#: includes/modules/class-custom-colors.php:435
+#: includes/modules/class-custom-colors.php:514
 msgctxt "color setting"
 msgid "Links and Buttons"
 msgstr "Links und Buttons"
 
-#: includes/modules/class-custom-colors.php:452
+#: includes/modules/class-custom-colors.php:530
 msgctxt "color setting"
 msgid "Post Titles"
 msgstr "Beitrags-Titel"
 
-#: includes/modules/class-custom-colors.php:469
+#: includes/modules/class-custom-colors.php:546
 msgctxt "color setting"
 msgid "Widget Titles"
 msgstr "Widget Titel"
 
-#: includes/modules/class-custom-colors.php:486
+#: includes/modules/class-custom-colors.php:562
 msgctxt "color setting"
 msgid "Footer Widgets"
 msgstr "Footer Widgets"
 
-#: includes/modules/class-custom-colors.php:503
+#: includes/modules/class-custom-colors.php:578
 msgctxt "color setting"
 msgid "Footer"
 msgstr "Footer"
 
-#: includes/modules/class-custom-fonts.php:209
+#: includes/modules/class-custom-fonts.php:253
 msgid "Theme Fonts"
 msgstr "Theme Schriftarten"
 
-#: includes/modules/class-custom-fonts.php:228
+#: includes/modules/class-custom-fonts.php:270
 msgid "Base Font"
 msgstr "Basis Schriftart"
 
-#: includes/modules/class-custom-fonts.php:244
+#: includes/modules/class-custom-fonts.php:285
 msgctxt "font setting"
 msgid "Headings"
 msgstr "Überschriften"
 
-#: includes/modules/class-custom-fonts.php:260
+#: includes/modules/class-custom-fonts.php:300
 msgctxt "font setting"
 msgid "Navigation"
 msgstr "Navigation"
 
-#: includes/modules/class-custom-fonts.php:276
+#: includes/modules/class-custom-fonts.php:315
 msgctxt "font setting"
 msgid "Widget Titles"
 msgstr "Widget Titel"
@@ -302,11 +302,19 @@ msgstr "Footer Spalte 4"
 msgid "Appears on the fourth footer column."
 msgstr "Erscheint in der vierten Footer Spalte."
 
-#: includes/modules/class-header-bar.php:105
+#: includes/modules/class-header-bar.php:78
+msgid "Navigation"
+msgstr "Navigation"
+
+#: includes/modules/class-header-bar.php:83
+msgid "Secondary Menu"
+msgstr "Sekundäres Menü"
+
+#: includes/modules/class-header-bar.php:130
 msgid "Top Navigation"
 msgstr "Obere Navigation"
 
-#: includes/modules/class-header-bar.php:106
+#: includes/modules/class-header-bar.php:131
 msgid "Social Icons"
 msgstr "Social Icons"
 
@@ -319,8 +327,8 @@ msgid "Header Search"
 msgstr "Header Suche"
 
 #: includes/modules/class-header-search.php:117
-msgid "Enable search field in header"
-msgstr "Suchfeld im Header anzeigen"
+msgid "Enable search field in main navigation"
+msgstr "Suchfeld in Hauptnavigation anzeigen"
 
 #: includes/modules/class-header-spacing.php:92
 msgid "Header Settings"
@@ -425,7 +433,7 @@ msgstr "Magazin (Vertikale Box)"
 msgid "Displays your posts from a selected category in a vertical box."
 msgstr "Zeigt die Beiträge einer gewählten Kategorie in einer vertikalen Box."
 
-#: wellington-pro.php:214
+#: wellington-pro.php:210
 msgid "Settings"
 msgstr "Einstellungen"
 
