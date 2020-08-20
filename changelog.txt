@@ -2,6 +2,10 @@
 Wellington Pro Changelog
 ===================================
 
+Version 1.5.1
+-----------------------------------
+* fixed typography settings for navigation menus
+
 Version 1.5
 -----------------------------------
 * updated styles and scripts of top navigation menu
