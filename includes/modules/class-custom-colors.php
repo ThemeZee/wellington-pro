@@ -145,6 +145,7 @@ class Wellington_Pro_Custom_Colors {
 						border-color: rgba(255,255,255,0.1);
 					}
 
+					.top-navigation ul a,
 					.top-navigation ul a:link,
 					.top-navigation ul a:visited,
 					.secondary-menu-toggle,
@@ -207,6 +208,7 @@ class Wellington_Pro_Custom_Colors {
 						border-color: rgba(0,0,0,0.15);
 					}
 
+					.main-navigation ul a,
 					.main-navigation ul a:link,
 					.main-navigation ul a:visited,
 					.primary-menu-toggle,
