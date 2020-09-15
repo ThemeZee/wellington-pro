@@ -51,7 +51,7 @@ class Wellington_Pro_Header_Search {
 		$theme_options = Wellington_Pro_Customizer::get_theme_options();
 
 		// Embed header search JS if enabled.
-		if ( true === $theme_options['header_search'] || is_customize_preview() ) :
+		if ( ( true === $theme_options['header_search'] || is_customize_preview() ) && ! self::is_amp() ) :
 
 			wp_enqueue_script( 'wellington-pro-header-search', WELLINGTON_PRO_PLUGIN_URL . 'assets/js/header-search.js', array( 'jquery' ), WELLINGTON_PRO_VERSION, true );
 
@@ -73,12 +73,12 @@ class Wellington_Pro_Header_Search {
 
 			<div class="header-search">
 
-				<a class="header-search-icon">
+				<a class="header-search-icon" aria-expanded="false" <?php self::amp_search_toggle(); ?>>
 					<span class="genericon-search"></span>
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'wellington-pro' ); ?></span>
 				</a>
 
-				<div class="header-search-form">
+				<div class="header-search-form" <?php self::amp_search_is_toggled(); ?>>
 					<?php get_search_form(); ?>
 				</div>
 
@@ -139,6 +139,32 @@ class Wellington_Pro_Header_Search {
 		}
 
 		return $elements;
+	}
+
+	/**
+	 * Checks if AMP page is rendered.
+	 */
+	static function is_amp() {
+		return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+	}
+
+	/**
+	 * Adds amp support for search toggle.
+	 */
+	static function amp_search_toggle() {
+		if ( self::is_amp() ) {
+			echo "[aria-expanded]=\"headerSearchExpanded? 'true' : 'false'\" ";
+			echo 'on="tap:AMP.setState({headerSearchExpanded: !headerSearchExpanded})"';
+		}
+	}
+
+	/**
+	 * Adds amp support for search form.
+	 */
+	static function amp_search_is_toggled() {
+		if ( self::is_amp() ) {
+			echo "[class]=\"'header-search-form' + ( headerSearchExpanded ? ' toggled-on' : '' )\"";
+		}
 	}
 }
 
