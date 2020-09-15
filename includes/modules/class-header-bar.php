@@ -31,7 +31,6 @@ class Wellington_Pro_Header_Bar {
 
 		// Display Header Bar.
 		add_action( 'wellington_header_bar', array( __CLASS__, 'display_header_bar' ) );
-
 	}
 
 	/**
@@ -70,7 +69,7 @@ class Wellington_Pro_Header_Bar {
 			// Check if there is a top navigation menu.
 			if ( has_nav_menu( 'secondary' ) ) : ?>
 
-				<button class="secondary-menu-toggle menu-toggle" aria-controls="secondary-menu" aria-expanded="false">
+				<button class="secondary-menu-toggle menu-toggle" aria-controls="secondary-menu" aria-expanded="false" <?php self::amp_menu_toggle(); ?>>
 					<?php
 					echo self::get_svg( 'menu' );
 					echo self::get_svg( 'close' );
@@ -80,7 +79,7 @@ class Wellington_Pro_Header_Bar {
 
 				<div class="secondary-navigation">
 
-					<nav class="top-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Menu', 'wellington-pro' ); ?>">
+					<nav class="top-navigation" role="navigation" <?php self::amp_menu_is_toggled(); ?> aria-label="<?php esc_attr_e( 'Secondary Menu', 'wellington-pro' ); ?>">
 
 						<?php
 						wp_nav_menu(
@@ -130,7 +129,25 @@ class Wellington_Pro_Header_Bar {
 			'secondary' => esc_html__( 'Top Navigation', 'wellington-pro' ),
 			'social'    => esc_html__( 'Social Icons', 'wellington-pro' ),
 		) );
+	}
 
+	/**
+	 * Adds amp support for menu toggle.
+	 */
+	static function amp_menu_toggle() {
+		if ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() ) {
+			echo "[aria-expanded]=\"secondaryMenuExpanded? 'true' : 'false'\" ";
+			echo 'on="tap:AMP.setState({secondaryMenuExpanded: !secondaryMenuExpanded})"';
+		}
+	}
+
+	/**
+	 * Adds amp support for mobile dropdown navigation menu.
+	 */
+	static function amp_menu_is_toggled() {
+		if ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() ) {
+			echo "[class]=\"'top-navigation' + ( secondaryMenuExpanded ? ' toggled-on' : '' )\"";
+		}
 	}
 }
 
