@@ -45,7 +45,7 @@ class Wellington_Pro_Scroll_To_Top {
 		$theme_options = Wellington_Pro_Customizer::get_theme_options();
 
 		// Call Credit Link function of theme if credit link is activated.
-		if ( true === $theme_options['scroll_to_top'] ) :
+		if ( true === $theme_options['scroll_to_top'] && ! self::is_amp() ) :
 
 			wp_enqueue_script( 'wellington-pro-scroll-to-top', WELLINGTON_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.js', array( 'jquery' ), WELLINGTON_PRO_VERSION, true );
 
@@ -84,6 +84,13 @@ class Wellington_Pro_Scroll_To_Top {
 			'type'     => 'checkbox',
 			'priority' => 20,
 		) );
+	}
+
+	/**
+	 * Checks if AMP page is rendered.
+	 */
+	static function is_amp() {
+		return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
 	}
 }
 

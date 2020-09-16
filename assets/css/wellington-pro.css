@@ -610,7 +610,7 @@
 	z-index: 9999;
 	width: 40px;
 	height: 40px;
-	display: inline;
+	display: inline-block;
 	position: fixed;
 	cursor: pointer;
 	margin: 0 auto;
@@ -630,7 +630,7 @@
 	background: #303030;
 }
 
-.scroll-to-top-button:after {
+.scroll-to-top-button::after {
 	display: inline-block;
 	margin: 0 0 0 2px;
 	color: #fff;
