@@ -8,7 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Scroll to Top Class
@@ -62,8 +64,8 @@ class Wellington_Pro_Scroll_To_Top {
 		// Add Scroll to Top headline.
 		$wp_customize->add_control( new Wellington_Customize_Header_Control(
 			$wp_customize, 'wellington_theme_options[scroll_top_title]', array(
-				'label' => esc_html__( 'Scroll to Top', 'wellington-pro' ),
-				'section' => 'wellington_pro_section_footer',
+				'label'    => esc_html__( 'Scroll to Top', 'wellington-pro' ),
+				'section'  => 'wellington_pro_section_footer',
 				'settings' => array(),
 				'priority' => 10,
 			)
@@ -72,7 +74,7 @@ class Wellington_Pro_Scroll_To_Top {
 		// Add Scroll to Top setting.
 		$wp_customize->add_setting( 'wellington_theme_options[scroll_to_top]', array(
 			'default'           => false,
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'wellington_sanitize_checkbox',
 		) );
