@@ -34,6 +34,9 @@ class Wellington_Pro_Scroll_To_Top {
 
 		// Add Scroll-To-Top Checkbox in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'scroll_to_top_settings' ) );
+
+		// Add Scroll-To-Top button for AMP pages.
+		add_action( 'wp_footer', array( __CLASS__, 'amp_scroll_to_top_button' ) );
 	}
 
 	/**
@@ -46,7 +49,7 @@ class Wellington_Pro_Scroll_To_Top {
 		// Get Theme Options from Database.
 		$theme_options = Wellington_Pro_Customizer::get_theme_options();
 
-		// Call Credit Link function of theme if credit link is activated.
+		// Load Scroll-to-Top script if feature is enabled.
 		if ( true === $theme_options['scroll_to_top'] && ! self::is_amp() ) :
 
 			wp_enqueue_script( 'wellington-pro-scroll-to-top', WELLINGTON_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.js', array( 'jquery' ), WELLINGTON_PRO_VERSION, true );
@@ -93,6 +96,65 @@ class Wellington_Pro_Scroll_To_Top {
 	 */
 	static function is_amp() {
 		return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+	}
+
+	/**
+	 * Insert Scroll-to-Top button for AMP pages.
+	 */
+	static function amp_scroll_to_top_button() {
+
+		// Return early if AMP is not used.
+		if ( ! self::is_amp() ) {
+			return;
+		}
+
+		?>
+
+			<script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
+			<script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
+
+			<amp-position-observer target="masthead" on="enter:hideAnim.start; exit:showAnim.start" layout="nodisplay"></amp-position-observer>
+
+			<amp-animation id="showAnim" layout="nodisplay">
+				<script type="application/json">
+					{
+						"duration": "200ms",
+						"fill": "both",
+						"iterations": "1",
+						"direction": "alternate",
+						"animations": [
+							{
+								"selector": "#scroll-to-top",
+								"keyframes": [
+									{ "opacity": "1", "visibility": "visible" }
+								]
+							}
+						]
+					}
+				</script>
+			</amp-animation>
+
+			<amp-animation id="hideAnim" layout="nodisplay">
+				<script type="application/json">
+					{
+						"duration": "200ms",
+						"fill": "both",
+						"iterations": "1",
+						"direction": "alternate",
+						"animations": [
+							{
+								"selector": "#scroll-to-top",
+								"keyframes": [
+									{ "opacity": "0", "visibility": "hidden" }
+								]
+							}
+						]
+					}
+				</script>
+			</amp-animation>
+
+			<button id="scroll-to-top" on="tap:masthead.scrollTo(duration=200)" class="scroll-to-top-button"></button>
+		<?php
 	}
 }
 
