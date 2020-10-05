@@ -2,6 +2,10 @@
 Wellington Pro Changelog
 ===================================
 
+Version 1.6.1
+-----------------------------------
+* added AMP dropdown toggles for sub menus
+
 Version 1.6
 -----------------------------------
 * added support for the official AMP plugin
