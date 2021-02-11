@@ -8,7 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Customizer Class
@@ -43,11 +45,7 @@ class Wellington_Pro_Customizer {
 	static function get_theme_options() {
 
 		// Merge Theme Options Array from Database with Default Options Array.
-		$theme_options = wp_parse_args( get_option( 'wellington_theme_options', array() ), self::get_default_options() );
-
-		// Return theme options.
-		return $theme_options;
-
+		return wp_parse_args( get_option( 'wellington_theme_options', array() ), self::get_default_options() );
 	}
 
 
@@ -59,29 +57,34 @@ class Wellington_Pro_Customizer {
 	static function get_default_options() {
 
 		$default_options = array(
-			'header_logo'          => '',
-			'header_spacing'       => 30,
-			'header_search'        => false,
-			'author_bio'           => false,
-			'scroll_to_top'        => false,
-			'logo_spacing'         => 0,
-			'footer_text'          => '',
-			'credit_link'          => true,
-			'top_navi_color'       => '#ffffff',
-			'navi_color'           => '#303030',
-			'link_color'           => '#ee3333',
-			'title_color'          => '#303030',
-			'widget_title_color'   => '#303030',
-			'footer_widgets_color' => '#303030',
-			'footer_color'         => '#303030',
-			'text_font'            => 'Gudea',
-			'title_font'           => 'Magra',
-			'navi_font'            => 'Gudea',
-			'widget_title_font'    => 'Magra',
+			'header_logo'               => '',
+			'header_spacing'            => 30,
+			'header_search'             => false,
+			'author_bio'                => false,
+			'scroll_to_top'             => false,
+			'logo_spacing'              => 0,
+			'footer_text'               => '',
+			'credit_link'               => true,
+			'top_navi_color'            => '#ffffff',
+			'navi_color'                => '#303030',
+			'link_color'                => '#ee3333',
+			'title_color'               => '#303030',
+			'widget_title_color'        => '#303030',
+			'footer_widgets_color'      => '#303030',
+			'footer_color'              => '#303030',
+			'text_font'                 => 'Gudea',
+			'title_font'                => 'Magra',
+			'title_is_bold'             => true,
+			'title_is_uppercase'        => false,
+			'navi_font'                 => 'Gudea',
+			'navi_is_bold'              => false,
+			'navi_is_uppercase'         => false,
+			'widget_title_font'         => 'Magra',
+			'widget_title_is_bold'      => true,
+			'widget_title_is_uppercase' => false,
 		);
 
 		return $default_options;
-
 	}
 
 	/**
@@ -90,9 +93,7 @@ class Wellington_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_js() {
-
-		wp_enqueue_script( 'wellington-pro-customizer-js', WELLINGTON_PRO_PLUGIN_URL . 'assets/js/customizer.js', array( 'customize-preview' ), WELLINGTON_PRO_VERSION, true );
-
+		wp_enqueue_script( 'wellington-pro-customizer-js', WELLINGTON_PRO_PLUGIN_URL . 'assets/js/customizer.js', array( 'customize-preview' ), '20201119', true );
 	}
 
 	/**
@@ -101,9 +102,7 @@ class Wellington_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_css() {
-
-		wp_enqueue_style( 'wellington-pro-customizer-css', WELLINGTON_PRO_PLUGIN_URL . 'assets/css/customizer.css', array(), WELLINGTON_PRO_VERSION );
-
+		wp_enqueue_style( 'wellington-pro-customizer-css', WELLINGTON_PRO_PLUGIN_URL . 'assets/css/customizer.css', array(), '20201119' );
 	}
 }
 
