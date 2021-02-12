@@ -106,7 +106,9 @@
 	color: #303030;
 	list-style: none;
 	@include font-size(15);
-	font-family: 'Gudea', Tahoma, Arial;
+	@include font-family(--navi-font);
+	@include font-weight(--navi-font-weight);
+	@include text-transform(--navi-text-transform);
 }
 
 .top-navigation ul li {

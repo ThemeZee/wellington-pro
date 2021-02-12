@@ -125,7 +125,12 @@
 	list-style: none;
 	font-size: 15px;
 	font-size: 0.9375rem;
-	font-family: 'Gudea', Tahoma, Arial;
+	font-family: "Gudea", arial, helvetica, sans-serif;
+	font-family: var(--navi-font);
+	font-weight: normal;
+	font-weight: var(--navi-font-weight);
+	text-transform: none;
+	text-transform: var(--navi-text-transform);
 }
 
 .top-navigation ul li {
