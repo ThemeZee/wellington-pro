@@ -211,6 +211,28 @@
 	height: 16px;
 }
 
+@media only screen and (max-width: 85em) {
+	.site {
+		box-shadow: 0 2px 2px #aaa;
+	}
+
+	.header-bar-wrap {
+		background: #fafafa;
+		box-shadow: 0 0 2px #aaa;
+	}
+}
+
+@media only screen and (max-width: 70em) {
+	.site {
+		box-shadow: none;
+	}
+
+	.header-bar-wrap {
+		border-bottom: 1px solid #ddd;
+		box-shadow: none;
+	}
+}
+
 @media only screen and (min-width: 60em) {
 	.secondary-menu-toggle,
 	.top-navigation .dropdown-toggle {

@@ -54,3 +54,17 @@
 .header-search .header-search-form .search-form {
 	min-width: 300px;
 }
+
+@media only screen and (max-width: 60em) {
+	.header-search .header-search-icon {
+		background: none;
+	}
+
+	.header-search .header-search-form {
+		width: 100%;
+	}
+
+	.header-search .header-search-form .search-form {
+		min-width: auto;
+	}
+}
