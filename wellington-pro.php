@@ -138,6 +138,9 @@ class Wellington_Pro {
 		// Enqueue Wellington Pro Stylesheet.
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_styles' ), 11 );
 
+		// Add Custom CSS code to the Gutenberg editor.
+		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'enqueue_editor_styles' ), 11 );
+
 		// Register additional Magazine Widgets.
 		add_action( 'widgets_init', array( __CLASS__, 'register_widgets' ) );
 
@@ -167,6 +170,33 @@ class Wellington_Pro {
 			wp_enqueue_style( 'wellington-pro', WELLINGTON_PRO_PLUGIN_URL . 'assets/css/wellington-pro.css', array(), WELLINGTON_PRO_VERSION );
 		}
 
+		// Enqueue Custom CSS.
+		wp_add_inline_style( 'wellington-pro', self::get_custom_css() );
+	}
+
+	/**
+	 * Enqueue Editor Styles
+	 *
+	 * @return void
+	 */
+	static function enqueue_editor_styles() {
+
+		// Return early if Wellington Theme is not active.
+		if ( ! current_theme_supports( 'wellington-pro' ) ) {
+			return;
+		}
+
+		// Enqueue Custom CSS.
+		wp_add_inline_style( 'wellington-editor-styles', self::get_custom_css() );
+	}
+
+	/**
+	 * Return custom CSS for color and font variables.
+	 *
+	 * @return void
+	 */
+	static function get_custom_css() {
+
 		// Get Custom CSS.
 		$custom_css = apply_filters( 'wellington_pro_custom_css_stylesheet', '' );
 
@@ -176,8 +206,7 @@ class Wellington_Pro {
 		$custom_css = preg_replace( '/\n/', '', $custom_css );
 		$custom_css = preg_replace( '/\t/', '', $custom_css );
 
-		// Enqueue Custom CSS.
-		wp_add_inline_style( 'wellington-pro', $custom_css );
+		return $custom_css;
 	}
 
 	/**
