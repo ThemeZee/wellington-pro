@@ -3,15 +3,15 @@
 	right: 0;
 	display: inline-block;
 	padding: 1em;
-	color: #fff;
-	background: rgba(255,255,255,0.075);
+	@include color(--navi-color);
+	@include background(--navi-current-color);
 	z-index: 99;
 }
 
 .header-search .header-search-icon:hover,
 .header-search .header-search-icon:active {
 	cursor: pointer;
-	color: rgba(255,255,255,0.5);
+	@include color(--navi-hover-color);
 }
 
 .header-search .header-search-icon:focus {
@@ -41,8 +41,9 @@
 	display: none;
 	margin: 0;
 	padding: 1em;
-	background: #fff;
-	border: 1px solid #ddd;
+	@include background(--page-background-color);
+	border: 1px solid;
+	@include border-color(--page-border-color);
 	border-top: none;
 	z-index: 999;
 }

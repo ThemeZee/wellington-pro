@@ -25,13 +25,13 @@
 
 .footer-navigation-menu a:link,
 .footer-navigation-menu a:visited {
-	color: #fff;
+	@include color(--footer-widgets-link-color);
 	text-decoration: none;
 }
 
 .footer-navigation-menu a:hover,
 .footer-navigation-menu a:active {
-	color: rgba(255,255,255,0.5);
+	@include color(--footer-widgets-link-hover-color);
 }
 
 @media only screen and (max-width: 60em) {
@@ -53,7 +53,8 @@
 @media only screen and (max-width: 40em) {
 	.footer-navigation {
 		padding-bottom: 2em;
-		border-bottom: 1px solid rgba(255,255,255,0.1);
+		border-bottom: 1px solid;
+		@include border-color(--footer-widgets-border-color);
 	}
 
 	.footer-navigation-menu li,

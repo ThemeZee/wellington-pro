@@ -11,14 +11,28 @@
 /*--------------------------------------------------------------
 # - CSS Variables
 --------------------------------------------------------------*/
+:root {
+	--header-bar-background-color: #fff;
+	--header-bar-text-color: #303030;
+	--header-bar-text-hover-color: rgba(0, 0, 0, 0.5);
+	--header-bar-border-color: rgba(0, 0, 0, 0.15);
+	--footer-widgets-background-color: #303030;
+	--footer-widgets-text-color: #fff;
+	--footer-widgets-link-color: #fff;
+	--footer-widgets-link-hover-color: rgba(255, 255, 255, 0.5);
+	--footer-widgets-border-color: rgba(255, 255, 255, 0.1);
+}
 
 /*--------------------------------------------------------------
 # Header Bar
 --------------------------------------------------------------*/
 .header-bar-wrap {
 	width: 100%;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-	background: #fff;
+	border-bottom: 1px solid;
+	border-color: rgba(0, 0, 0, 0.15);
+	border-color: var(--header-bar-border-color);
+	background-color: #fff;
+	background-color: var(--header-bar-background-color);
 }
 
 .header-bar {
@@ -37,6 +51,7 @@
 .header-bar .social-icons-menu li a {
 	padding: 0.8em;
 	color: #303030;
+	color: var(--header-bar-text-color);
 }
 
 .header-bar .social-icons-menu li a::before {
@@ -46,6 +61,7 @@
 .header-bar .social-icons-menu li a:hover,
 .header-bar .social-icons-menu li a:active {
 	color: rgba(0, 0, 0, 0.5);
+	color: var(--header-bar-text-hover-color);
 	text-decoration: none;
 }
 
@@ -75,6 +91,7 @@
 	border: none;
 	background: none;
 	color: #303030;
+	color: var(--header-bar-text-color);
 	text-decoration: none;
 	font-size: 15px;
 	font-size: 0.9375rem;
@@ -85,12 +102,14 @@
 .secondary-menu-toggle:focus {
 	outline: thin dotted;
 	color: #303030;
+	color: var(--header-bar-text-color);
 	background: none;
 }
 
 .secondary-menu-toggle:hover,
 .secondary-menu-toggle:active {
 	color: rgba(0, 0, 0, 0.5);
+	color: var(--header-bar-text-hover-color);
 	background: none;
 	cursor: pointer;
 }
@@ -101,11 +120,13 @@
 	height: 22px;
 	vertical-align: top;
 	fill: #303030;
+	fill: var(--header-bar-text-color);
 }
 
 .secondary-menu-toggle:hover .icon,
 .secondary-menu-toggle:active .icon {
 	fill: rgba(0, 0, 0, 0.5);
+	fill: var(--header-bar-text-hover-color);
 }
 
 .secondary-menu-toggle[aria-expanded="true"] .icon-menu,
@@ -122,6 +143,7 @@
 	margin: 0;
 	padding: 0;
 	color: #303030;
+	color: var(--header-bar-text-color);
 	list-style: none;
 	font-size: 15px;
 	font-size: 0.9375rem;
@@ -142,7 +164,9 @@
 	display: block;
 	margin: 0;
 	padding: 0.8em 1em;
-	border-top: 1px solid rgba(0, 0, 0, 0.15);
+	border-top: 1px solid;
+	border-color: rgba(0, 0, 0, 0.15);
+	border-color: var(--header-bar-border-color);
 	text-decoration: none;
 }
 
@@ -150,6 +174,7 @@
 .top-navigation ul a:link,
 .top-navigation ul a:visited {
 	color: #303030;
+	color: var(--header-bar-text-color);
 	text-decoration: none;
 }
 
@@ -157,6 +182,7 @@
 .top-navigation ul a:active,
 .top-navigation ul a:focus {
 	color: rgba(0, 0, 0, 0.5);
+	color: var(--header-bar-text-hover-color);
 }
 
 .top-navigation ul li.current-menu-item > a {
@@ -200,6 +226,7 @@
 .top-navigation .dropdown-toggle:focus {
 	outline: thin dotted;
 	color: #303030;
+	color: var(--header-bar-text-color);
 	background: none;
 }
 
@@ -214,11 +241,13 @@
 	height: 18px;
 	vertical-align: top;
 	fill: #303030;
+	fill: var(--header-bar-text-color);
 }
 
 .top-navigation .dropdown-toggle:hover .icon,
 .top-navigation .dropdown-toggle:active .icon {
 	fill: rgba(0, 0, 0, 0.5);
+	fill: var(--header-bar-text-hover-color);
 }
 
 .top-navigation .dropdown-toggle.toggled-on .icon {
@@ -242,7 +271,6 @@
 	}
 
 	.header-bar-wrap {
-		background: #fafafa;
 		box-shadow: 0 0 2px #aaa;
 	}
 }
@@ -253,7 +281,6 @@
 	}
 
 	.header-bar-wrap {
-		border-bottom: 1px solid #ddd;
 		box-shadow: none;
 	}
 }
@@ -293,13 +320,18 @@
 		left: -999em;
 		top: 100%;
 		z-index: 99999;
-		border-top: 1px solid rgba(0, 0, 0, 0.15);
-		background: #fff;
+		border-top: 1px solid;
+		border-color: rgba(0, 0, 0, 0.15);
+		border-color: var(--header-bar-border-color);
+		background-color: #fff;
+		background-color: var(--header-bar-background-color);
 	}
 
 	.top-navigation ul ul a {
 		border-top: none;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+		border-bottom: 1px solid;
+		border-color: rgba(0, 0, 0, 0.15);
+		border-color: var(--header-bar-border-color);
 	}
 
 	.top-navigation ul li:hover > ul,
@@ -339,6 +371,7 @@
 		width: 11px;
 		height: 11px;
 		fill: #303030;
+		fill: var(--header-bar-text-color);
 	}
 
 	.top-navigation ul ul .menu-item-has-children > a > .icon {
@@ -354,6 +387,7 @@
 
 	.top-navigation ul .menu-item-has-children > a:hover > .icon {
 		fill: rgba(0, 0, 0, 0.5);
+		fill: var(--header-bar-text-hover-color);
 	}
 }
 
@@ -366,7 +400,9 @@
 	display: inline-block;
 	padding: 1em;
 	color: #fff;
-	background: rgba(255, 255, 255, 0.075);
+	color: var(--navi-color);
+	background-color: rgba(255, 255, 255, 0.075);
+	background-color: var(--navi-current-color);
 	z-index: 99;
 }
 
@@ -374,6 +410,7 @@
 .header-search .header-search-icon:active {
 	cursor: pointer;
 	color: rgba(255, 255, 255, 0.5);
+	color: var(--navi-hover-color);
 }
 
 .header-search .header-search-icon:focus {
@@ -403,8 +440,11 @@
 	display: none;
 	margin: 0;
 	padding: 1em;
-	background: #fff;
-	border: 1px solid #ddd;
+	background-color: #fff;
+	background-color: var(--page-background-color);
+	border: 1px solid;
+	border-color: #ddd;
+	border-color: var(--page-border-color);
 	border-top: none;
 	z-index: 999;
 }
@@ -652,7 +692,9 @@
 .entry-author {
 	margin: 0 0 1.5em;
 	padding: 1.5em 0 0;
-	border-top: 1px solid #ddd;
+	border-top: 1px solid;
+	border-color: #ddd;
+	border-color: var(--page-border-color);
 }
 
 .entry-author .author-avatar {
@@ -708,8 +750,11 @@
 --------------------------------------------------------------*/
 .footer-widgets-background {
 	padding: 2.5em 3em 0;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	background: #303030;
+	border-bottom: 1px solid;
+	border-color: rgba(255, 255, 255, 0.1);
+	border-color: var(--footer-widgets-border-color);
+	background-color: #303030;
+	background-color: var(--footer-widgets-background-color);
 }
 
 .footer-widgets {
@@ -752,20 +797,24 @@
 /* Footer Widget Styling */
 .footer-widgets .widget {
 	color: #fff;
+	color: var(--footer-widgets-text-color);
 }
 
 .footer-widgets .widget-title {
 	color: #fff;
+	color: var(--footer-widgets-text-color);
 }
 
 .footer-widgets .widget a:link,
 .footer-widgets .widget a:visited {
 	color: #fff;
+	color: var(--footer-widgets-link-color);
 }
 
 .footer-widgets .widget a:hover,
 .footer-widgets .widget a:active {
 	color: rgba(255, 255, 255, 0.5);
+	color: var(--footer-widgets-link-hover-color);
 }
 
 @media only screen and (max-width: 80em) {
@@ -850,12 +899,14 @@
 .footer-navigation-menu a:link,
 .footer-navigation-menu a:visited {
 	color: #fff;
+	color: var(--footer-widgets-link-color);
 	text-decoration: none;
 }
 
 .footer-navigation-menu a:hover,
 .footer-navigation-menu a:active {
 	color: rgba(255, 255, 255, 0.5);
+	color: var(--footer-widgets-link-hover-color);
 }
 
 @media only screen and (max-width: 60em) {
@@ -877,7 +928,9 @@
 @media only screen and (max-width: 40em) {
 	.footer-navigation {
 		padding-bottom: 2em;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid;
+		border-color: rgba(255, 255, 255, 0.1);
+		border-color: var(--footer-widgets-border-color);
 	}
 
 	.footer-navigation-menu li,
@@ -904,23 +957,32 @@
 	padding: 0;
 	right: 0.75em;
 	bottom: 0.75em;
-	background: #ee3333;
+	background-color: #ee3333;
+	background-color: var(--button-color);
+	color: #fff;
+	color: var(--button-text-color);
 	transition: none;
 }
 
 .scroll-to-top-button:focus,
 .scroll-to-top-button:active {
-	background: #ee3333;
+	background-color: #ee3333;
+	background-color: var(--button-color);
+	color: #fff;
+	color: var(--button-text-color);
 }
 
 .scroll-to-top-button:hover {
-	background: #303030;
+	background-color: #303030;
+	background-color: var(--button-hover-color);
+	color: #fff;
+	color: var(--button-hover-text-color);
 }
 
 .scroll-to-top-button::after {
 	display: inline-block;
 	margin: 0 0 0 2px;
-	color: #fff;
+	color: currentColor;
 	content: '\f432';
 	vertical-align: top;
 	text-decoration: inherit;
