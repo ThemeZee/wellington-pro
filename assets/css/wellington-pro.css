@@ -899,14 +899,14 @@
 .footer-navigation-menu a:link,
 .footer-navigation-menu a:visited {
 	color: #fff;
-	color: var(--footer-widgets-link-color);
+	color: var(--footer-link-color);
 	text-decoration: none;
 }
 
 .footer-navigation-menu a:hover,
 .footer-navigation-menu a:active {
 	color: rgba(255, 255, 255, 0.5);
-	color: var(--footer-widgets-link-hover-color);
+	color: var(--footer-link-hover-color);
 }
 
 @media only screen and (max-width: 60em) {
@@ -930,7 +930,7 @@
 		padding-bottom: 2em;
 		border-bottom: 1px solid;
 		border-color: rgba(255, 255, 255, 0.1);
-		border-color: var(--footer-widgets-border-color);
+		border-color: var(--footer-border-color);
 	}
 
 	.footer-navigation-menu li,

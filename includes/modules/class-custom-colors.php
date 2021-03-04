@@ -53,353 +53,77 @@ class Wellington_Pro_Custom_Colors {
 		// Color Variables.
 		$color_variables = '';
 
-		// Set Link Color.
-		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
-			$color_variables .= '--page-background-color: ' . $theme_options['page_bg_color'] . ';';
-
-			$custom_css .= '
-				/* Link and Button Color Setting */
-				a:link,
-				a:visited,
-				.has-primary-color {
-					color: ' . $theme_options['link_color'] . ';
-				}
-
-				a:hover,
-				a:focus,
-				a:active {
-					color: #303030;
-				}
-
-				button,
-				input[type="button"],
-				input[type="reset"],
-				input[type="submit"],
-				.more-link,
-				.entry-categories .meta-categories a,
-				.widget_tag_cloud .tagcloud a:hover,
-				.widget_tag_cloud .tagcloud a:active,
-				.entry-tags .meta-tags a:hover,
-				.entry-tags .meta-tags a:active,
-				.pagination a:hover,
-				.pagination a:active,
-				.pagination .current,
-				.infinite-scroll #infinite-handle span:hover,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
-				.tzwb-tabbed-content .tzwb-tabnavi li a:active,
-				.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab,
-				.tzwb-social-icons .social-icons-menu li a:link,
-				.tzwb-social-icons .social-icons-menu li a:visited,
-				.scroll-to-top-button,
-				.scroll-to-top-button:focus,
-				.scroll-to-top-button:active {
-					color: #fff;
-					background: ' . $theme_options['link_color'] . ';
-				}
-
-				button:hover,
-				input[type="button"]:hover,
-				input[type="reset"]:hover,
-				input[type="submit"]:hover,
-				button:focus,
-				input[type="button"]:focus,
-				input[type="reset"]:focus,
-				input[type="submit"]:focus,
-				button:active,
-				input[type="button"]:active,
-				input[type="reset"]:active,
-				input[type="submit"]:active,
-				.more-link:hover,
-				.more-link:active,
-				.tzwb-social-icons .social-icons-menu li a:active,
-				.tzwb-social-icons .social-icons-menu li a:hover,
-				.scroll-to-top-button:hover {
-					background: #303030;
-				}
-
-				.has-primary-background-color {
-					background-color: ' . $theme_options['link_color'] . ';
-				}
-			';
-		} // End if().
-
 		// Set Top Navigation Color.
 		if ( $theme_options['top_navi_color'] !== $default_options['top_navi_color'] ) {
-
-			$custom_css .= '
-				/* Top Navigation Color Setting */
-				.header-bar-wrap,
-				.top-navigation ul ul {
-					background: ' . $theme_options['top_navi_color'] . ';
-				}
-			';
+			$color_variables .= '--header-bar-background-color: ' . $theme_options['top_navi_color'] . ';';
 
 			// Check if a dark background color was chosen.
 			if ( self::is_color_dark( $theme_options['top_navi_color'] ) ) {
-				$custom_css .= '
-					.header-bar-wrap,
-					.top-navigation ul,
-					.top-navigation ul a,
-					.top-navigation ul ul,
-					.top-navigation ul ul a,
-					.top-navigation ul ul li:last-child a {
-						border-color: rgba(255,255,255,0.1);
-					}
-
-					.top-navigation ul a,
-					.top-navigation ul a:link,
-					.top-navigation ul a:visited,
-					.secondary-menu-toggle,
-					.secondary-menu-toggle:focus,
-					.header-bar .social-icons-menu li a:link,
-					.header-bar .social-icons-menu li a:visited {
-					    color: #ffffff;
-					}
-
-					.top-navigation ul a:hover,
-					.top-navigation ul a:active,
-					.secondary-menu-toggle:hover,
-					.secondary-menu-toggle:active,
-					.header-bar .social-icons-menu li a:hover,
-					.header-bar .social-icons-menu li a:active {
-						color: rgba(255,255,255,0.5);
-					}
-
-					.top-navigation ul li.current-menu-item > a {
-						background: rgba(255,255,255,0.075);
-					}
-
-					.secondary-menu-toggle .icon,
-					.top-navigation .dropdown-toggle .icon,
-					.top-navigation ul .menu-item-has-children > a > .icon {
-					    fill: #ffffff;
-					}
-
-					.secondary-menu-toggle:hover .icon,
-					.secondary-menu-toggle:active .icon,
-					.top-navigation .dropdown-toggle:hover .icon,
-					.top-navigation .dropdown-toggle:active .icon,
-					.top-navigation ul .menu-item-has-children > a:hover > .icon,
-					.top-navigation ul .menu-item-has-children > a:active > .icon {
-						fill: rgba(255,255,255,0.5);
-					}
-				';
-			} // End if().
-		} // End if().
+				$color_variables .= '--header-bar-text-color: #fff;';
+				$color_variables .= '--header-bar-text-hover-color: rgba(255, 255, 255, 0.5);';
+				$color_variables .= '--header-bar-border-color: rgba(255, 255, 255, 0.15);';
+			}
+		}
 
 		// Set Main Navigation Color.
 		if ( $theme_options['navi_color'] !== $default_options['navi_color'] ) {
-
-			$custom_css .= '
-				/* Main Navigation Color Setting */
-				.primary-navigation-wrap,
-				.main-navigation ul ul {
-					background: ' . $theme_options['navi_color'] . ';
-				}
-			';
+			$color_variables .= '--navi-background-color: ' . $theme_options['navi_color'] . ';';
 
 			// Check if a light background color was chosen.
 			if ( self::is_color_light( $theme_options['navi_color'] ) ) {
-				$custom_css .= '
-					.main-navigation ul,
-					.main-navigation ul a,
-					.main-navigation ul ul,
-					.main-navigation ul ul a,
-					.main-navigation ul ul li:last-child a {
-						border-color: rgba(0,0,0,0.15);
-					}
+				$color_variables .= '--navi-color: #151515;';
+				$color_variables .= '--navi-hover-color: rgba(0, 0, 0, 0.5);';
+				$color_variables .= '--navi-border-color: rgba(0, 0, 0, 0.1);';
+				$color_variables .= '--navi-current-color: rgba(0, 0, 0, 0.075);';
+			}
+		}
 
-					.main-navigation ul a,
-					.main-navigation ul a:link,
-					.main-navigation ul a:visited,
-					.primary-menu-toggle,
-					.primary-menu-toggle:focus,
-					.header-search .header-search-icon {
-					    color: #111111;
-					}
+		// Set Link Color.
+		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
+			$color_variables .= '--link-color: ' . $theme_options['link_color'] . ';';
+			$color_variables .= '--button-color: ' . $theme_options['link_color'] . ';';
+			$color_variables .= '--title-hover-color: ' . $theme_options['link_color'] . ';';
+			$color_variables .= '--widget-title-hover-color: ' . $theme_options['link_color'] . ';';
 
-					.main-navigation ul a:hover,
-					.main-navigation ul a:active,
-					.primary-menu-toggle:hover,
-					.primary-menu-toggle:active,
-					.header-search .header-search-icon:hover,
-					.header-search .header-search-icon:active {
-						color: rgba(0,0,0,0.5);
-					}
-
-					.main-navigation ul li.current-menu-item > a,
-					.header-search .header-search-icon {
-						background: rgba(0,0,0,0.05);
-					}
-
-					.primary-menu-toggle .icon,
-					.main-navigation .dropdown-toggle .icon,
-					.main-navigation ul .menu-item-has-children > a > .icon {
-					    fill: #111111;
-					}
-
-					.primary-menu-toggle:hover .icon,
-					.primary-menu-toggle:active .icon,
-					.main-navigation .dropdown-toggle:hover .icon,
-					.main-navigation .dropdown-toggle:active .icon,
-					.main-navigation ul .menu-item-has-children > a:hover > .icon,
-					.main-navigation ul .menu-item-has-children > a:active > .icon {
-						fill: rgba(0,0,0,0.5);
-					}
-				';
-			} // End if().
-		} // End if().
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['link_color'] ) ) {
+				$color_variables .= '--button-text-color: #151515;';
+			}
+		}
 
 		// Set Title Color.
 		if ( $theme_options['title_color'] != $default_options['title_color'] ) {
-
-			$custom_css .= '
-				/* Post Titles Primary Color Setting */
-				.site-title,
-				.site-title a:link,
-				.site-title a:visited,
-				.page-title,
-				.entry-title,
-				.entry-title a:link,
-				.entry-title a:visited,
-				.post-slider-controls .zeeflex-direction-nav a:link,
-				.post-slider-controls .zeeflex-direction-nav a:visited {
-					color: ' . $theme_options['title_color'] . ';
-				}
-
-				.site-title a:hover,
-				.site-title a:active,
-				.widget-title a:hover,
-				.widget-title a:active,
-				.entry-title a:hover,
-				.entry-title a:active,
-				.post-slider-controls .zeeflex-direction-nav a:hover,
-				.post-slider-controls .zeeflex-direction-nav a:active {
-					color: #ee3333;
-				}
-
-				button:hover,
-				input[type="button"]:hover,
-				input[type="reset"]:hover,
-				input[type="submit"]:hover,
-				button:focus,
-				input[type="button"]:focus,
-				input[type="reset"]:focus,
-				input[type="submit"]:focus,
-				button:active,
-				input[type="button"]:active,
-				input[type="reset"]:active,
-				input[type="submit"]:active,
-				.more-link:hover,
-				.more-link:active,
-				.pagination a:link,
-				.pagination a:visited,
-				.infinite-scroll #infinite-handle span,
-				.tzwb-social-icons .social-icons-menu li a:active,
-				.tzwb-social-icons .social-icons-menu li a:hover {
-					background: ' . $theme_options['title_color'] . ';
-				}
-			';
-		} // End if().
+			$color_variables .= '--title-color: ' . $theme_options['title_color'] . ';';
+		}
 
 		// Set Widget Title Color.
 		if ( $theme_options['widget_title_color'] !== $default_options['widget_title_color'] ) {
-
-			$custom_css .= '
-				/* Widget Titles Color Setting */
-				.widget-title,
-				.widget-title a:link,
-				.widget-title a:visited,
-				.archive-title,
-				.comments-header .comments-title,
-				.comment-reply-title span {
-					color: ' . $theme_options['widget_title_color'] . ';
-				}
-			';
-		}
-
-		// Set Title Hover Color (= Link and Buttons color)
-		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
-
-			$custom_css .= '
-				/* Title Hover Color Setting */
-				.site-title a:hover,
-				.site-title a:active,
-				.widget-title a:hover,
-				.widget-title a:active,
-				.entry-title a:hover,
-				.entry-title a:active,
-				.post-slider-controls .zeeflex-direction-nav a:hover,
-				.post-slider-controls .zeeflex-direction-nav a:active {
-					color: ' . $theme_options['link_color'] . ';
-				}
-
-				.pagination a:hover,
-				.pagination a:active,
-				.infinite-scroll #infinite-handle span:hover {
-					background: ' . $theme_options['link_color'] . ';
-				}
-			';
+			$color_variables .= '--widget-title-color: ' . $theme_options['widget_title_color'] . ';';
 		}
 
 		// Set Footer Widgets Color.
 		if ( $theme_options['footer_widgets_color'] != $default_options['footer_widgets_color'] ) {
+			$color_variables .= '--footer-widgets-background-color: ' . $theme_options['footer_widgets_color'] . ';';
 
-			$custom_css .= '
-				.footer-widgets-background {
-					background: ' . $theme_options['footer_widgets_color'] . ';
-				}
-				';
-
-			// Check if a dark background color was chosen.
+			// Check if a light background color was chosen.
 			if ( self::is_color_light( $theme_options['footer_widgets_color'] ) ) {
-				$custom_css .= '
-					.footer-widgets .widget,
-					.footer-widgets .widget-title,
-					.footer-widgets .widget-title a:link,
-					.footer-widgets .widget-title a:visited,
-					.footer-widgets .widget a:link,
-					.footer-widgets .widget a:visited  {
-						color: #111111;
-					}
-
-					.footer-widgets .widget-title a:hover,
-					.footer-widgets .widget-title a:active,
-					.footer-widgets .widget a:hover,
-					.footer-widgets .widget a:active {
-						color: rgba(0,0,0,0.5);
-					}
-				';
+				$color_variables .= '--footer-widgets-text-color: #151515;';
+				$color_variables .= '--footer-widgets-link-color: #151515;';
+				$color_variables .= '--footer-widgets-link-hover-color: rgba(0, 0, 0, 0.5);';
+				$color_variables .= '--footer-widgets-border-color: rgba(0, 0, 0, 0.1);';
 			}
 		}
 
 		// Set Footer Color.
 		if ( $theme_options['footer_color'] != $default_options['footer_color'] ) {
+			$color_variables .= '--footer-background-color: ' . $theme_options['footer_color'] . ';';
 
-			$custom_css .= '
-				.footer-wrap {
-					background: ' . $theme_options['footer_color'] . ';
-				}
-				';
-
-			// Check if a dark background color was chosen.
+			// Check if a light background color was chosen.
 			if ( self::is_color_light( $theme_options['footer_color'] ) ) {
-				$custom_css .= '
-					.site-footer,
-					.site-footer .site-info,
-					.site-footer .site-info a:link,
-					.site-footer .site-info a:visited,
-					.footer-navigation-menu a:link,
-					.footer-navigation-menu a:visited {
-						color: #111111;
-					}
-					.site-footer .site-info a:hover,
-					.site-footer .site-info a:active,
-					.footer-navigation-menu a:hover,
-					.footer-navigation-menu a:active {
-						color: rgba(0,0,0,0.5);
-					}
-				';
+				$color_variables .= '--footer-text-color: #151515;';
+				$color_variables .= '--footer-link-color: #151515;';
+				$color_variables .= '--footer-link-hover-color: rgba(0, 0, 0, 0.5);';
+				$color_variables .= '--footer-border-color: rgba(0, 0, 0, 0.1);';
 			}
 		}
 

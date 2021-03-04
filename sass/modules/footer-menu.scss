@@ -25,13 +25,13 @@
 
 .footer-navigation-menu a:link,
 .footer-navigation-menu a:visited {
-	@include color(--footer-widgets-link-color);
+	@include color(--footer-link-color);
 	text-decoration: none;
 }
 
 .footer-navigation-menu a:hover,
 .footer-navigation-menu a:active {
-	@include color(--footer-widgets-link-hover-color);
+	@include color(--footer-link-hover-color);
 }
 
 @media only screen and (max-width: 60em) {
@@ -54,7 +54,7 @@
 	.footer-navigation {
 		padding-bottom: 2em;
 		border-bottom: 1px solid;
-		@include border-color(--footer-widgets-border-color);
+		@include border-color(--footer-border-color);
 	}
 
 	.footer-navigation-menu li,
