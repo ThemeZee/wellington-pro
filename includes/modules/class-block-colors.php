@@ -134,7 +134,7 @@ class Wellington_Pro_Block_Colors {
 		// Add Section for Block Colors.
 		$wp_customize->add_section( 'wellington_pro_section_block_colors', array(
 			'title'    => esc_html__( 'Block Colors', 'wellington-pro' ),
-			'priority' => 55,
+			'priority' => 60,
 			'panel'    => 'wellington_options_panel',
 		) );
 
