@@ -76,7 +76,11 @@ class Wellington_Pro_Customizer {
 			'top_navi_color'            => '#ffffff',
 			'navi_color'                => '#303030',
 			'link_color'                => '#ee3333',
+			'link_hover_color'          => '#303030',
+			'button_color'              => '#ee3333',
+			'button_hover_color'        => '#303030',
 			'title_color'               => '#303030',
+			'title_hover_color'         => '#ee3333',
 			'widget_title_color'        => '#303030',
 			'footer_widgets_color'      => '#303030',
 			'footer_color'              => '#303030',
@@ -101,7 +105,7 @@ class Wellington_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_js() {
-		wp_enqueue_script( 'wellington-pro-customizer-js', WELLINGTON_PRO_PLUGIN_URL . 'assets/js/customize-preview.js', array( 'customize-preview' ), '20210215', true );
+		wp_enqueue_script( 'wellington-pro-customizer-js', WELLINGTON_PRO_PLUGIN_URL . 'assets/js/customize-preview.js', array( 'customize-preview' ), '20210306', true );
 	}
 
 	/**
