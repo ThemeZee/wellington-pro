@@ -49,9 +49,23 @@ class Wellington_Pro_Scroll_To_Top {
 		// Call Credit Link function of theme if credit link is activated.
 		if ( true === $theme_options['scroll_to_top'] && ! self::is_amp() ) :
 
-			wp_enqueue_script( 'wellington-pro-scroll-to-top', WELLINGTON_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.min.js', array( 'jquery' ), '20210212', true );
+			wp_enqueue_script( 'wellington-pro-scroll-to-top', WELLINGTON_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.min.js', array( 'jquery' ), '20210603', true );
+
+			// Passing Parameters to navigation.js.
+			wp_localize_script( 'wellington-pro-scroll-to-top', 'wellingtonProScrollToTop', array( 'icon' => self::get_svg( 'collapse' ) ) );
 
 		endif;
+	}
+
+	/**
+	 * Get SVG icon.
+	 *
+	 * @return void
+	 */
+	static function get_svg( $icon ) {
+		if ( function_exists( 'wellington_get_svg' ) ) {
+			return wellington_get_svg( $icon );
+		}
 	}
 
 	/**
