@@ -119,6 +119,7 @@ class Wellington_Pro {
 		require_once WELLINGTON_PRO_PLUGIN_DIR . '/includes/modules/class-header-search.php';
 		require_once WELLINGTON_PRO_PLUGIN_DIR . 'includes/modules/class-header-spacing.php';
 		require_once WELLINGTON_PRO_PLUGIN_DIR . '/includes/modules/class-scroll-to-top.php';
+		require_once WELLINGTON_PRO_PLUGIN_DIR . 'includes/modules/class-widget-areas.php';
 
 		// Include Magazine Widgets.
 		require_once WELLINGTON_PRO_PLUGIN_DIR . '/includes/widgets/widget-magazine-posts-horizontal-box.php';
