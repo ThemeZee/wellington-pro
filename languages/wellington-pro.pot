@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wellington Pro\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2021-03-09 14:55+0100\n"
+"POT-Creation-Date: 2021-08-20 16:06+0200\n"
 "PO-Revision-Date: 2016-05-31 09:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
@@ -359,19 +359,19 @@ msgstr ""
 msgid "Appears on the fourth footer column."
 msgstr ""
 
-#: includes/modules/class-header-bar.php:77
+#: includes/modules/class-header-bar.php:80
 msgid "Navigation"
 msgstr ""
 
-#: includes/modules/class-header-bar.php:82
+#: includes/modules/class-header-bar.php:85
 msgid "Secondary Menu"
 msgstr ""
 
-#: includes/modules/class-header-bar.php:129
+#: includes/modules/class-header-bar.php:250
 msgid "Top Navigation"
 msgstr ""
 
-#: includes/modules/class-header-bar.php:130
+#: includes/modules/class-header-bar.php:251
 msgid "Social Icons"
 msgstr ""
 
@@ -379,11 +379,11 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: includes/modules/class-header-search.php:103
+#: includes/modules/class-header-search.php:114
 msgid "Header Search"
 msgstr ""
 
-#: includes/modules/class-header-search.php:119
+#: includes/modules/class-header-search.php:130
 msgid "Enable search field in main navigation"
 msgstr ""
 
@@ -399,12 +399,66 @@ msgstr ""
 msgid "Logo Spacing (default: 0)"
 msgstr ""
 
-#: includes/modules/class-scroll-to-top.php:67
+#: includes/modules/class-scroll-to-top.php:81
 msgid "Scroll to Top"
 msgstr ""
 
-#: includes/modules/class-scroll-to-top.php:83
+#: includes/modules/class-scroll-to-top.php:97
 msgid "Display Scroll to Top Button"
+msgstr ""
+
+#: includes/modules/class-widget-areas.php:112
+msgid "Before Header"
+msgstr ""
+
+#: includes/modules/class-widget-areas.php:114
+msgctxt "widget area description"
+msgid "Appears above the header area."
+msgstr ""
+
+#: includes/modules/class-widget-areas.php:123
+msgid "After Header"
+msgstr ""
+
+#: includes/modules/class-widget-areas.php:125
+msgctxt "widget area description"
+msgid "Appears below the header area."
+msgstr ""
+
+#: includes/modules/class-widget-areas.php:134
+msgid "Before Latest Blog Posts"
+msgstr ""
+
+#: includes/modules/class-widget-areas.php:136
+msgctxt "widget area description"
+msgid "Appears on the blog page above the latest posts."
+msgstr ""
+
+#: includes/modules/class-widget-areas.php:145
+msgid "After Single Posts"
+msgstr ""
+
+#: includes/modules/class-widget-areas.php:147
+msgctxt "widget area description"
+msgid "Appears below single posts."
+msgstr ""
+
+#: includes/modules/class-widget-areas.php:156
+msgid "After Static Pages"
+msgstr ""
+
+#: includes/modules/class-widget-areas.php:158
+msgctxt "widget area description"
+msgid "Appears below static pages."
+msgstr ""
+
+#: includes/modules/class-widget-areas.php:167
+msgid "Before Footer"
+msgstr ""
+
+#: includes/modules/class-widget-areas.php:169
+msgctxt "widget area description"
+msgid "Appears above the footer area."
 msgstr ""
 
 #: includes/widgets/widget-magazine-posts-horizontal-box.php:24
@@ -487,6 +541,6 @@ msgstr ""
 msgid "Displays your posts from a selected category in a vertical box."
 msgstr ""
 
-#: wellington-pro.php:240
+#: wellington-pro.php:241
 msgid "Settings"
 msgstr ""

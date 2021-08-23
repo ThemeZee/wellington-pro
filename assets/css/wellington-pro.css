@@ -490,6 +490,78 @@
 }
 
 /*--------------------------------------------------------------
+# Widget Areas
+--------------------------------------------------------------*/
+.before-header-widget-area,
+.after-header-widget-area,
+.before-footer-widget-area {
+	padding: 1px 3em;
+	background-color: #fff;
+	background-color: var(--page-background-color);
+}
+
+.before-header-widget-area .widget:first-child,
+.after-header-widget-area .widget:first-child,
+.before-footer-widget-area .widget:first-child {
+	margin-top: 3em;
+}
+
+.before-header-widget-area,
+.after-header-widget-area {
+	border-bottom: 1px solid;
+	border-color: #ddd;
+	border-color: var(--page-border-color);
+}
+
+.before-footer-widget-area {
+	border-top: 1px solid;
+	border-color: #ddd;
+	border-color: var(--page-border-color);
+}
+
+@media only screen and (max-width: 85em) {
+	.before-header-widget-area,
+	.after-header-widget-area,
+	.before-footer-widget-area {
+		padding: 1px 2em;
+	}
+
+	.before-header-widget-area .widget:first-child,
+	.after-header-widget-area .widget:first-child,
+	.before-footer-widget-area .widget:first-child {
+		margin-top: 2em;
+	}
+}
+
+@media only screen and (max-width: 50em) {
+	.before-header-widget-area,
+	.after-header-widget-area,
+	.before-footer-widget-area {
+		padding: 1px 1.5em;
+	}
+
+	.before-header-widget-area .widget:first-child,
+	.after-header-widget-area .widget:first-child,
+	.before-footer-widget-area .widget:first-child {
+		margin-top: 1.5em;
+	}
+}
+
+@media only screen and (max-width: 30em) {
+	.before-header-widget-area,
+	.after-header-widget-area,
+	.before-footer-widget-area {
+		padding: 1px 1.25em;
+	}
+
+	.before-header-widget-area .widget:first-child,
+	.after-header-widget-area .widget:first-child,
+	.before-footer-widget-area .widget:first-child {
+		margin-top: 1.25em;
+	}
+}
+
+/*--------------------------------------------------------------
 # Magazine Widgets
 --------------------------------------------------------------*/
 
