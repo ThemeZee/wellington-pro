@@ -110,11 +110,13 @@ class Wellington_Pro_Custom_Colors {
 
 		// Set Title Color.
 		if ( $theme_options['title_color'] !== $default_options['title_color'] ) {
+			$color_variables .= '--site-title-color: ' . $theme_options['title_color'] . ';';
 			$color_variables .= '--title-color: ' . $theme_options['title_color'] . ';';
 		}
 
 		// Set Title Hover Color.
 		if ( $theme_options['title_hover_color'] !== $default_options['title_hover_color'] ) {
+			$color_variables .= '--site-title-hover-color: ' . $theme_options['title_hover_color'] . ';';
 			$color_variables .= '--title-hover-color: ' . $theme_options['title_hover_color'] . ';';
 		}
 

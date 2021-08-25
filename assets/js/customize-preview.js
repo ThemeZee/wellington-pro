@@ -182,6 +182,7 @@
 	/* Title Color Option */
 	wp.customize( 'wellington_theme_options[title_color]', function( value ) {
 		value.bind( function( newval ) {
+			document.documentElement.style.setProperty( '--site-title-color', newval );
 			document.documentElement.style.setProperty( '--title-color', newval );
 		} );
 	} );
@@ -189,6 +190,7 @@
 	/* Title Hover Option */
 	wp.customize( 'wellington_theme_options[title_hover_color]', function( value ) {
 		value.bind( function( newval ) {
+			document.documentElement.style.setProperty( '--site-title-hover-color', newval );
 			document.documentElement.style.setProperty( '--title-hover-color', newval );
 		} );
 	} );

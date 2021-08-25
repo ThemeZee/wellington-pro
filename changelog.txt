@@ -2,6 +2,10 @@
 Wellington Pro Changelog
 ===================================
 
+Version 2.0.1
+-----------------------------------
+* fixed Site Title color option
+
 Version 2.0
 -----------------------------------
 * added extra widget areas
