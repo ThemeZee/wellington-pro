@@ -2,6 +2,12 @@
 Wellington Pro Changelog
 ===================================
 
+Version 2.0.2
+-----------------------------------
+* added Steam and Discord to social icons
+* updated Header Search script to use vanilla js
+* updated Scroll to Top button script to use vanilla js
+
 Version 2.0.1
 -----------------------------------
 * fixed Site Title color option
