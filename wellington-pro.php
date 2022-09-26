@@ -5,14 +5,14 @@ Plugin URI: http://themezee.com/addons/wellington-pro/
 Description: Adds additional features like footer widgets, custom colors, custom fonts, custom menus, and Magazine Post widgets to the Wellington theme.
 Author: ThemeZee
 Author URI: https://themezee.com/
-Version: 2.0.2
+Version: 2.0.3
 Text Domain: wellington-pro
 Domain Path: /languages/
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Wellington Pro
-Copyright(C) 2021, ThemeZee.com - support@themezee.com
+Copyright(C) 2022, ThemeZee.com - support@themezee.com
 
 */
 
@@ -63,7 +63,7 @@ class Wellington_Pro {
 		define( 'WELLINGTON_PRO_NAME', 'Wellington Pro' );
 
 		// Define Version Number.
-		define( 'WELLINGTON_PRO_VERSION', '2.0.2' );
+		define( 'WELLINGTON_PRO_VERSION', '2.0.3' );
 
 		// Define Plugin Name.
 		define( 'WELLINGTON_PRO_PRODUCT_ID', 113282 );

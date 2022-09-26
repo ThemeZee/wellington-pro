@@ -2,6 +2,10 @@
 Wellington Pro Changelog
 ===================================
 
+Version 2.0.3
+-----------------------------------
+* updated aria labels to improve accessibility
+
 Version 2.0.2
 -----------------------------------
 * added Steam and Discord to social icons
