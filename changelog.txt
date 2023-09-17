@@ -2,6 +2,10 @@
 Wellington Pro Changelog
 ===================================
 
+Version 2.0.5
+-----------------------------------
+* updated plugin updater
+
 Version 2.0.4
 -----------------------------------
 * added Mastodon to social icons menu
