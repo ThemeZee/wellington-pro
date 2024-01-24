@@ -2,6 +2,10 @@
 Wellington Pro Changelog
 ===================================
 
+Version 2.0.6
+-----------------------------------
+* added X to social icons menu
+
 Version 2.0.5
 -----------------------------------
 * updated plugin updater
