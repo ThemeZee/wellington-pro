@@ -490,6 +490,7 @@
 --------------------------------------------------------------*/
 .before-header-widget-area,
 .after-header-widget-area,
+.before-footer-columns-widget-area,
 .before-footer-widget-area {
 	padding: 1px 3em;
 	background-color: #fff;
@@ -497,8 +498,23 @@
 }
 .before-header-widget-area .widget:first-child,
 .after-header-widget-area .widget:first-child,
+.before-footer-columns-widget-area .widget:first-child,
 .before-footer-widget-area .widget:first-child {
 	margin-top: 3em;
+}
+
+.before-footer-widget-area {
+	border-bottom: 1px solid;
+	border-color: rgba(255, 255, 255, 0.1);
+	border-color: var(--footer-widgets-border-color);
+	background-color: #303030;
+	background-color: var(--footer-widgets-background-color);
+	color: #fff;
+	color: var(--footer-widgets-text-color);
+}
+.before-footer-widget-area .widget-title {
+	color: #fff;
+	color: var(--footer-widgets-text-color);
 }
 
 .before-header-widget-area,
@@ -508,7 +524,7 @@
 	border-color: var(--page-border-color);
 }
 
-.before-footer-widget-area {
+.before-footer-columns-widget-area {
 	border-top: 1px solid;
 	border-color: #ddd;
 	border-color: var(--page-border-color);
@@ -517,12 +533,14 @@
 @media only screen and (max-width: 85em) {
 	.before-header-widget-area,
 	.after-header-widget-area,
+	.before-footer-columns-widget-area,
 	.before-footer-widget-area {
 		padding: 1px 2em;
 	}
 
 	.before-header-widget-area .widget:first-child,
 	.after-header-widget-area .widget:first-child,
+	.before-footer-columns-widget-area .widget:first-child,
 	.before-footer-widget-area .widget:first-child {
 		margin-top: 2em;
 	}
@@ -530,12 +548,14 @@
 @media only screen and (max-width: 50em) {
 	.before-header-widget-area,
 	.after-header-widget-area,
+	.before-footer-columns-widget-area,
 	.before-footer-widget-area {
 		padding: 1px 1.5em;
 	}
 
 	.before-header-widget-area .widget:first-child,
 	.after-header-widget-area .widget:first-child,
+	.before-footer-columns-widget-area .widget:first-child,
 	.before-footer-widget-area .widget:first-child {
 		margin-top: 1.5em;
 	}
@@ -543,12 +563,14 @@
 @media only screen and (max-width: 30em) {
 	.before-header-widget-area,
 	.after-header-widget-area,
+	.before-footer-columns-widget-area,
 	.before-footer-widget-area {
 		padding: 1px 1.25em;
 	}
 
 	.before-header-widget-area .widget:first-child,
 	.after-header-widget-area .widget:first-child,
+	.before-footer-columns-widget-area .widget:first-child,
 	.before-footer-widget-area .widget:first-child {
 		margin-top: 1.25em;
 	}

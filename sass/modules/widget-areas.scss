@@ -2,6 +2,7 @@
 
 .before-header-widget-area,
 .after-header-widget-area,
+.before-footer-columns-widget-area,
 .before-footer-widget-area {
 	padding: 1px 3em;
 	@include mixins.background(--page-background-color);
@@ -11,13 +12,24 @@
 	}
 }
 
+.before-footer-widget-area {
+    border-bottom: 1px solid;
+    @include mixins.border-color(--footer-widgets-border-color);
+    @include mixins.background(--footer-widgets-background-color);
+    @include mixins.color(--footer-widgets-text-color);
+
+    .widget-title {
+        @include mixins.color(--footer-widgets-text-color);
+    }
+}
+
 .before-header-widget-area,
 .after-header-widget-area {
 	border-bottom: 1px solid;
 	@include mixins.border-color(--page-border-color);
 }
 
-.before-footer-widget-area {
+.before-footer-columns-widget-area {
 	border-top: 1px solid;
 	@include mixins.border-color(--page-border-color);
 }
@@ -25,6 +37,7 @@
 @media only screen and (max-width: 85em) {
 	.before-header-widget-area,
 	.after-header-widget-area,
+    .before-footer-columns-widget-area,
 	.before-footer-widget-area {
 		padding: 1px 2em;
 
@@ -37,6 +50,7 @@
 @media only screen and (max-width: 50em) {
 	.before-header-widget-area,
 	.after-header-widget-area,
+    .before-footer-columns-widget-area,
 	.before-footer-widget-area {
 		padding: 1px 1.5em;
 
@@ -49,6 +63,7 @@
 @media only screen and (max-width: 30em) {
 	.before-header-widget-area,
 	.after-header-widget-area,
+    .before-footer-columns-widget-area,
 	.before-footer-widget-area {
 		padding: 1px 1.25em;
 
