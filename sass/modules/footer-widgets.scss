@@ -1,8 +1,10 @@
+@use "../_mixins";
+
 .footer-widgets-background {
 	padding: 2.5em 3em 0;
 	border-bottom: 1px solid;
-	@include border-color(--footer-widgets-border-color);
-	@include background(--footer-widgets-background-color);
+	@include mixins.border-color(--footer-widgets-border-color);
+	@include mixins.background(--footer-widgets-background-color);
 }
 
 .footer-widgets {
@@ -44,21 +46,21 @@
 
 /* Footer Widget Styling */
 .footer-widgets .widget {
-	@include color(--footer-widgets-text-color);
+	@include mixins.color(--footer-widgets-text-color);
 }
 
 .footer-widgets .widget-title {
-	@include color(--footer-widgets-text-color);
+	@include mixins.color(--footer-widgets-text-color);
 }
 
 .footer-widgets .widget a:link,
 .footer-widgets .widget a:visited {
-	@include color(--footer-widgets-link-color);
+	@include mixins.color(--footer-widgets-link-color);
 }
 
 .footer-widgets .widget a:hover,
 .footer-widgets .widget a:active {
-	@include color(--footer-widgets-link-hover-color);
+	@include mixins.color(--footer-widgets-link-hover-color);
 }
 
 @media only screen and (max-width: 80em) {
